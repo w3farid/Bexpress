@@ -8,21 +8,7 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-            <h:form enctype="multipart/form-data">
-                <p:growl id="messages" showDetail="true" />
-                <h:panelGrid columns="2" cellpadding="0">
-                    <p:outputLabel for="repid" value="Representative id" />
-                    <p:selectOneMenu class="selectMenu" id="repid" value="#{representativesBean.repId}" effect="fold" editable="false" rendered="true">
-                        <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
-                        <f:selectItems value="#{listDao.repIdList}" />
-                    </p:selectOneMenu>                                        
-                    <p:outputLabel value="Select Image"/>
-                    <p:fileUpload value="#{representativesBean.file}" mode="simple" skinSimple="true"/>
-                </h:panelGrid>
-
-                <p:commandButton value="Submit" ajax="false" actionListener="#{representativesBean.imageUpload()}" disabled="false" />
-            </h:form>
-       
+            
     </h:body>
 </html>
 
