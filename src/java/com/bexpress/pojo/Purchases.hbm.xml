@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 23, 2016 4:01:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bexpress.pojo.Purchases" table="purchases" catalog="bexpresstest" optimistic-lock="version">
+        <id name="purId" type="java.lang.Integer">
+            <column name="pur_id" />
+            <generator class="identity" />
+        </id>
+        <property name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
+        </property>
+        <property name="proName" type="string">
+            <column name="pro_name" length="45" />
+        </property>
+        <property name="suplierName" type="string">
+            <column name="suplier_name" length="45" />
+        </property>
+        <property name="serialNumber" type="string">
+            <column name="Serial_number" length="45" />
+        </property>
+        <property name="catName" type="string">
+            <column name="Cat_name" length="45" />
+        </property>
+        <property name="purDate" type="date">
+            <column name="pur_date" length="10" />
+        </property>
+        <property name="stock" type="java.lang.Integer">
+            <column name="stock" />
+        </property>
+        <property name="purPrice" type="java.lang.Double">
+            <column name="pur_price" precision="22" scale="0" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

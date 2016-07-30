@@ -1,0 +1,120 @@
+
+#top {
+    top: 0;
+    height: 33px;
+    left: 0;
+    margin-bottom: 0;
+    margin-top: 0;  
+    position: fixed;
+    right: 0;
+    color: #000;
+    font-weight: bold;
+    z-index: 1;
+    overflow: visible;
+    background-color: #fff;
+    border: 1px;
+    height: 33px !important;
+    box-shadow: none !important;
+    width: 100%;
+
+}
+
+
+#bottom {
+    background-color: #333538;
+    bottom: 0;
+    height: 30px;
+    left: 0;
+    margin-bottom: 0;
+    padding: 8px 0 0 22px;
+    position: fixed;
+    right: 0;
+}
+.footer_txt{
+    color: #fff;
+}
+
+#left {
+    float: left;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    border: 1px solid #045491;
+    border-radius: 10px;
+    height: available;
+    margin: 70px 0 39px 0;
+    padding: 0;
+    width: 100%;
+}
+.left_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+    color: #000;
+    font-weight : bold;
+    text-decoration: none;
+
+}
+#top a:after{
+    display: none;
+
+}
+
+#top a:link:hover, #top a:visited:hover  {
+    color: #fff;
+    font-weight : bold;
+    text-decoration : underline;
+    cursor: cell;
+
+}
+#userBar {
+    background-color: #3fa243;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 0 2px #000;
+    clear: both;
+    height: 19px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+::-webkit-scrollbar { width: 9px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #999;}
+::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #999;}
+::-webkit-resizer { background-color: #666;}
+
+#top #allnavmenu{
+    float: right;
+    width: auto;
+}
+
+#logTxt {
+    color: #5caf50;
+    font-size: 19px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}

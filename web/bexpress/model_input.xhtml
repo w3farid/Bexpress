@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="Template.xhtml">
+            <ui:define name="title">
+                Product
+            </ui:define>
+            <ui:define name="content">
+                <f:facet name="head">
+
+                    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+                    <h:outputStylesheet library="css" name="tabview.css"/>
+                    <h:outputScript library="js" name="jquery-3.1.0.min"/>
+                    <h:outputScript library="js" name="bootstrap.min.js"/>
+
+
+                </f:facet>
+                <div id="tab">                    
+                    <h:form id="form">
+                        <p:growl id="msgs" showDetail="true" />
+                        <h3>Manager//</h3>
+                        <p:tabView orientation="left">
+                            <p:tab title="Insert">
+                                <div id="formV">
+                                    <h:form>
+                                        <p:growl id="msgs" showDetail="true"/>
+                                        <h:panelGrid columns="4" cellpadding="0">
+                                            <h:outputLabel for="email1" value="Input Text" />
+                                            <p:inputText style="width: 50%" id="email1" value="#{customValidationView.text}">
+                                                <f:validateRegex pattern=""/>
+                                            </p:inputText>
+                                            <p:message for="email1" display="tooltip" />
+                                            <h:outputText value="#{customValidationView.text}" />
+
+                                            <h:outputLabel for="email2" value="input text" />
+                                            <p:inputText id="email2" value="#{customValidationView.email}" />
+                                            <p:message for="email2" display="tooltip" />
+                                            <h:outputText value="#{customValidationView.email}" />
+
+
+                                            <h:outputLabel for="email2" value="autocomplete" />
+                                            <p:autoComplete id="acSimple" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
+                                            <p:message for="email2" display="tooltip" />
+                                            <h:outputText value="#{customValidationView.email}" />
+
+                                            <h:outputLabel for="email2" value="autocomplete" />
+                                            <p:selectBooleanButton id="value2" value="#{selectBooleanView.value2}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px">
+                                                <p:ajax update="msgs" listener="#{selectBooleanView.addMessage}" />
+                                            </p:selectBooleanButton>
+                                            <p:message for="email2" display="tooltip" />
+                                            <h:outputText value="#{customValidationView.email}" />
+
+                                            <p:outputLabel for="german" value="date" />
+                                            <p:calendar id="german" value="#{calendarView.date5}" locale="de" navigator="true" pattern="yyyy-MMM-dd" />
+                                            <p:message for="email2" display="tooltip" />
+                                            <h:outputText value="#{customValidationView.email}" />
+
+                                            <p:outputLabel for="city" value="Editable: " />
+                                            <p:selectOneMenu  id="city" value="#{selectOneMenuView.city}" effect="fold" editable="true">
+                                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                                <f:selectItems value="#{selectOneMenuView.cities}" />
+                                            </p:selectOneMenu>
+                                            <p:message for="email2" display="tooltip" />
+                                            <h:outputText value="#{customValidationView.email}" />
+
+                                            <p:outputLabel for="city" value="Editable: " />
+                                            <p:inputTextarea rows="5" cols="30" counter="display" maxlength="10" counterTemplate="{0} cr" autoResize="false" />
+                                            <p:message for="email2" display="tooltip" />
+                                            <h:outputText id="display" />
+
+
+                                        </h:panelGrid>
+                                        <p:commandButton style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Save" ajax="false" icon="ui-icon-check" validateClient="true"/>
+
+                                    </h:form>
+                                </div>
+                            </p:tab>
+                            <p:tab title="Update">
+
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
+                                    <h:outputText value="Francis Ford Coppola's legendary..." />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab title="Delete">
+
+                            </p:tab>
+                        </p:tabView>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

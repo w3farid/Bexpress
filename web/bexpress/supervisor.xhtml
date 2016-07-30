@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="Template.xhtml">
+            <ui:define name="title">
+                Product
+            </ui:define>
+            <ui:define name="content">
+                <f:facet name="head">
+
+                    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+                    <h:outputStylesheet library="css" name="tabview.css"/>
+                    <h:outputScript library="js" name="jquery-3.1.0.min"/>
+                    <h:outputScript library="js" name="bootstrap.min.js"/>
+
+
+                </f:facet>
+                <div id="tab">                    
+                    <h:form id="form">
+                        <p:growl id="msgs" showDetail="true" />
+                        <h3>Manager//</h3>
+                        <p:tabView orientation="left">
+                            <p:tab title="Insert">
+                                <div id="formV">
+                                    <h3>Add new category//</h3>
+                                    <h:form>
+                                        <p:growl id="msgs"/>
+                                        <h:panelGrid columns="4" cellpadding="0">
+                                            <h:outputLabel for="supid" value="Sup id" />
+                                            <p:autoComplete id="supid" value="#{supervisorBean.supId}" placeholder="sup id" autoHighlight="true" autocomplete="true" completeMethod="#{autoCompleteBean.completeCatId}">
+                                                <f:validateRegex pattern="^[0-9]+$" />
+                                                <p:ajax update="supid2" event="keyup"/>
+                                            </p:autoComplete>
+                                            <p:message for="supid" id="supid2" display="icon" />
+                                            <h:outputText />
+
+                                            <h:outputLabel for="supname" value="Sup Name" />
+                                            <p:inputText id="supname" value="#{supervisorBean.supName}" placeholder="sup name">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$" />
+                                                <p:ajax update="supname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="supname" id="supname2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="managerid" value="Manager id" />
+                                            <p:selectOneMenu  id="managerid" class="selectMenu"  value="#{supervisorBean.managerId}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="managerid" id="managerid2" display="tooltip" />
+                                            <h:outputText/> 
+                                            
+                                            <p:outputLabel for="comid" value="Company id" />
+                                            <p:selectOneMenu  id="comid" class="selectMenu"  value="#{supervisorBean.comId}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="comid" id="comid2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                           <p:outputLabel for="workarea" value="Working Area" />
+                                           <p:inputTextarea id="workarea" value="#{supervisorBean.area}" placeholder="working area" rows="5" cols="30" counter="display" maxlength="10" counterTemplate="{0} cr" autoResize="false" />
+                                            <p:message for="workarea" display="tooltip" />
+                                            <h:outputText id="display" />
+
+                                        </h:panelGrid>
+                                        <p:commandButton update="msgs" actionListener="#{supervisorBean.doSaveSup}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Save" ajax="true" icon="ui-icon-check" validateClient="true"/>
+
+                                    </h:form>
+                                </div>
+                            </p:tab>
+                            <p:tab title="Update">
+                                <div id="formV">
+                                    <h3>Update Supervisor Data//</h3>
+                                    <h:form>
+                                        <p:growl id="msgs" showDetail="true"/>
+                                        <h:panelGrid columns="4" cellpadding="0">
+                                            <p:outputLabel for="costid" value="Cost Id" />
+                                            <p:selectOneMenu class="selectMenu" id="costid" value="#{supervisorBean.supId}"  effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.supIdList}" />
+                                                <p:ajax listener="#{supervisorBean.supIdQuery}" update="supname workarea managerid comid"/>
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="costid" id="costid2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <h:outputLabel for="supname" value="Sup Name" />
+                                            <p:inputText id="supname" value="#{supervisorBean.supName}" placeholder=" sup name">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$" />
+                                                <p:ajax update="supname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="supname" id="supname2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="managerid" value="Manager id"/>
+                                            <p:selectOneMenu  id="managerid" class="selectMenu"  value="#{supervisorBean.managerId}" effect="fold" editable="true" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>                                               
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="managerid" id="managerid2" display="tooltip" />
+                                            <h:outputText/> 
+                                            
+                                            <p:outputLabel for="comid" value="Company id" />
+                                            <p:selectOneMenu  id="comid" class="selectMenu"  value="#{supervisorBean.comId}" effect="fold" editable="true" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                               
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="comid" id="comid2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                           <p:outputLabel for="workarea" value="Working Area" />
+                                           <p:inputTextarea id="workarea" value="#{supervisorBean.area}" placeholder="working area" rows="5" cols="30" counter="display" maxlength="10" counterTemplate="{0} cr" autoResize="false" />
+                                            <p:message for="workarea" display="tooltip" />
+                                            <h:outputText id="display" />
+
+                                        </h:panelGrid>
+                                        <p:commandButton update="msgs" actionListener="#{supervisorBean.doUpdateSup}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Save" ajax="true" icon="ui-icon-check" validateClient="true"/>
+
+                                    </h:form>
+                                </div>
+                            </p:tab>
+                            <p:tab title="Delete">
+                                <div id="formV">
+                                    <h3>Delete Supervisor Data//</h3>
+                                    <h:form>
+                                        <p:growl id="msgs" showDetail="true"/>
+                                        <h:panelGrid columns="4" cellpadding="0">
+                                            <p:outputLabel for="costid" value="Cost Id" />
+                                            <p:selectOneMenu class="selectMenu" id="costid" value="#{supervisorBean.supId}"  effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.supIdList}" />
+                                                <p:ajax listener="#{supervisorBean.supIdQuery}" update="supname workarea managerid "/>
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="costid" id="costid2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <h:outputLabel for="supname" value="Sup Name" />
+                                            <p:inputText id="supname" value="#{supervisorBean.supName}" placeholder=" sup name">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$" />
+                                                <p:ajax update="supname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="supname" id="supname2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="managerid" value="Manager id"/>
+                                            <p:selectOneMenu  id="managerid" class="selectMenu"  value="#{supervisorBean.managerId}" effect="fold" editable="true" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+<!--                                                <f:selectItem itemLabel="#{supervisorBean.managerId}" itemValue="#{supervisorBean.managerId}" />-->
+                                               
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="managerid" id="managerid2" display="tooltip" />
+                                            <h:outputText/> 
+                                            
+                                            <p:outputLabel for="comid" value="Company id" />
+                                            <p:selectOneMenu  id="comid" class="selectMenu"  value="#{supervisorBean.comId}" effect="fold" editable="true" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                               
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="comid" id="comid2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                           <p:outputLabel for="workarea" value="Working Area" />
+                                           <p:inputTextarea id="workarea" value="#{supervisorBean.area}" placeholder="working area" rows="5" cols="30" counter="display" maxlength="10" counterTemplate="{0} cr" autoResize="false" />
+                                            <p:message for="workarea" display="tooltip" />
+                                            <h:outputText id="display" />
+
+                                        </h:panelGrid>
+                                        <p:commandButton update="msgs" actionListener="#{supervisorBean.doDeleteSup}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Save" ajax="true" icon="ui-icon-check" validateClient="true"/>
+
+                                    </h:form>
+                                </div>
+                            </p:tab>
+                        </p:tabView>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

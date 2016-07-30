@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>        
+        <h:outputStylesheet name="css/menubar.css"/>
+        <title> <ui:insert name="title"/></title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top" style="">
+            <div style="width: 100%; clear: both;">
+                <div style="float: left; width: 152px;">
+                    <a style="background-color: transparent; cursor: default; " href="#"> <p:graphicImage url="../resources/images/logo.png" library="resources" style="height: 30px; margin-left: 24px; width: 24px;
+                                    background-color: transparent; transform: rotate(20deg); "/>
+                    <span id="logTxt">Express</span> </a>       
+                </div>
+                <div id="allnavmenu" style="margin-right: 10%;">
+                    <h:form>
+                        <p:growl id="messages"/>
+                        <p:menuButton value="Employees" class="navbtn1" id="navbtn1">
+                            <p:menuitem value="Manager" action="manager" actionListener="#{menuBean.employeeMenu}" update="messages"/>                       
+                            <p:menuitem value="Representatives" action="representatives" actionListener="#{menuBean.employeeMenu}" update="messages"/>                        
+                            <p:menuitem value="Supervisor" action="supervisor" actionListener="#{menuBean.employeeMenu}" update="messages"/>
+                            <p:menuitem value="Suplier" action="suplier" actionListener="#{menuBean.employeeMenu}" update="messages"/>
+                            <p:separator />
+                            <p:menuitem value="Home" url="http://www.primefaces.org"/>
+                        </p:menuButton>
+                    </h:form>
+                </div>
+                <div id="allnavmenu">
+                    <h:form>
+                        <p:growl id="messages"/>
+                        <p:menuButton value="Transactions" class="navbtn1" id="navbtn1">                            
+                            <p:menuitem value="Lifting" action="purchasesProduct" actionListener="#{menuBean.transactionMenu()}" update="messages"/>                                
+                           
+                            <p:menuitem value="Sales" action="orders" actionListener="#{menuBean.transactionMenu()}" update="messages"/>                        
+                            <p:menuitem value="Return Sales" action="return" actionListener="#{menuBean.transactionMenu()}" update="messages"/>
+                            <p:menuitem value="QC Product" actionListener="#{menuView.delete}" update="messages"/>
+                            <p:separator />
+                            <p:menuitem value="Home" url="#"/>
+
+                        </p:menuButton>
+                    </h:form>
+                </div>
+                <div id="allnavmenu">
+                    <h:form>
+                        <p:growl id="messages" life="5"/>
+                        <p:menuButton value="Route Planning" class="navbtn1" id="navbtn1">                            
+                            <p:menuitem value="Browse Route"/>
+
+                        </p:menuButton>
+                    </h:form>
+                </div>
+                <div id="allnavmenu">
+                    <h:form>
+                         <p:growl id="messages"/>
+                        <p:menuButton value="Sales Planning" class="navbtn1" id="navbtn1">                            
+                            <p:menuitem value="Sales SKUs" url="http://www.primefaces.org"/>
+                            <p:menuitem value="Sales Plan Point" url="http://www.primefaces.org"/>
+
+                        </p:menuButton>
+                    </h:form>
+                </div>
+                <div id="allnavmenu">
+                    <h:form>
+                         <p:growl id="messages"/>
+                        <p:menuButton value="Reports" class="navbtn1" id="navbtn1">                            
+                            <p:menuitem value="Sales" url="http://www.primefaces.org"/>
+                            <p:menuitem value="Purchases" url="http://www.primefaces.org"/>
+                            <p:menuitem value="Purchases" url="http://www.primefaces.org"/>
+                            <p:menuitem value="returns" url="http://www.primefaces.org"/>
+                            <p:menuitem value="QC" url="http://www.primefaces.org"/>
+
+                        </p:menuButton>
+                    </h:form>
+                </div>
+            </div>
+            <!--END MENU BAR........-->
+            <div id="userBar">
+                <span id="dashboard"><p:graphicImage url="../resources/images/home.png" library="resources"/>
+                    Dashboard
+                </span>
+                <span id="username">
+                    Business Manager//#{loginBean.username}
+                </span>
+            </div>
+
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+                content
+            </ui:insert>
+        </div>
+
+        <div id="bottom">
+
+            <div style="width: 70%; float: left;" id="footer_txt"><span class="footer_txt">Developed &and; Managed by </span>Farid</div>
+
+
+            <div id="logout">
+                <h:form>
+                    <p:commandButton class="logoutButton" ajax="true" image="save" value="Logout" action="#{loginBean.logout()}"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+
+    </h:body>
+
+</html>

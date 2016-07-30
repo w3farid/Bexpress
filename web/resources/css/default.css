@@ -1,0 +1,99 @@
+body {
+    background-image: url(../../resources/images/body-bg-02.jpg);
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    /*color: #000000;*/  
+    margin: 10px;
+}
+
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
+}
+
+a:link, a:visited {
+    color: #045491;
+    font-weight : bold;
+    text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+    color: #045491;
+    font-weight : bold;
+    text-decoration : underline;
+}
+#logout{
+    width: 30%;
+    float: right;
+    padding: 0;
+    margin: 0;
+
+}
+.logoutButton{    
+    background-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+
+    color: #fff;
+    float: right;
+    margin-right: 30px;
+
+
+}
+.logoutButton:hover{    
+    background-color: #D20005;
+    box-shadow: none;
+}
+#logout .save{
+    background-image: url(../../resources/images/logout.png);
+    background-repeat: no-repeat;
+}
+#dashboard {
+    background-color: transparent;
+    color: #c2c2c2;
+    font-weight: bold;
+    padding-left: 15px;
+    float: left;
+}
+#username {
+    background-color: transparent;
+    color: #c2c2c2;
+    font-weight: bold;
+    padding-right: 20px;
+    float: right;
+}
+#top .ui-button {
+  background-color: transparent !important;
+  border: none !important;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.1em;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none !important;
+  height: 33px !important;
+}
+#top a:link, a{
+     color: #000 !important;
+     font-weight: bold !important;
+}
+
+#top a:link,a:hover{
+  color: #fff !important;
+  background-color: #4caf50 ;
+  background: #4caf50;
+  font-weight: normal;
+  text-decoration: none;
+  width: 200px; 
+  border: none;
+  box-shadow: none;
+  padding-right: 0 !important;
+}

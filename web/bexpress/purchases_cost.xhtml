@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="Template.xhtml">
+            <ui:define name="title">
+                Product
+            </ui:define>
+            <ui:define name="content">
+                <f:facet name="head">
+
+                    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+                    <h:outputStylesheet library="css" name="tabview.css"/>
+                    <h:outputScript library="js" name="jquery-3.1.0.min"/>
+                    <h:outputScript library="js" name="bootstrap.min.js"/>
+
+
+                </f:facet>
+                <div id="tab">                    
+                    <h:form id="form">
+                        <p:growl id="msgs" showDetail="true" />
+                        <h3>Manager//</h3>
+                        <p:tabView orientation="left">
+                            <p:tab title="Insert">
+                                <div id="formV">
+                                    <h3>Add new Purchase cost//</h3>
+                                    <h:form>
+                                        <p:growl id="msgs"/>
+                                        <h:panelGrid columns="4" cellpadding="0">
+                                            <h:outputLabel for="costid" value="Cost id" />
+                                            <p:autoComplete id="costid" value="#{purchasesCostBean.costId}" placeholder="cost id" autoHighlight="true" autocomplete="true" completeMethod="#{autoCompleteBean.completeCatId}">
+                                                <f:validateRegex pattern="^[0-9]+$" />
+                                                <p:ajax update="costid2" event="keyup"/>
+                                            </p:autoComplete>
+                                            <p:message for="costid" id="costid2" display="icon" />
+                                            <h:outputText />
+
+                                            <p:outputLabel for="repid" value="Representive id" />
+                                            <p:selectOneMenu class="selectMenu"  id="repid" value="#{purchasesCostBean.representiveId}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="repid" id="repid2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <h:outputLabel for="costname" value="Cost Name" />
+                                            <p:inputText id="costname" value="#{purchasesCostBean.costName}" placeholder="cost name">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$" />
+                                                <p:ajax update="costname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="costname" id="costname2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="costtype" value="Cost Type" />
+                                            <p:selectOneMenu  id="costtype" class="selectMenu"  value="#{purchasesCostBean.costType}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="costtype" id="costtype2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <h:outputLabel for="costvalue" value="Cost Value" />
+                                            <p:inputText id="costvalue" value="#{purchasesCostBean.costValue}" placeholder="cost taka">
+                                                <f:validateRegex pattern="^[0-9]+$" />
+                                                <p:ajax update="costvalue" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="costvalue" id="costvalue2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="date" value="Date" />
+                                            <p:calendar id="date" value="#{purchasesCostBean.costDate}" locale="de" navigator="true" pattern="yyyy-MMM-dd" />
+                                            <p:message for="date" display="date2" />
+                                            <h:outputText />
+
+                                        </h:panelGrid>
+                                        <p:commandButton update="msgs" actionListener="#{purchasesCostBean.doSavePurCost}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Save" ajax="false" icon="ui-icon-check" validateClient="true"/>
+
+                                    </h:form>
+                                </div>
+                            </p:tab>
+                            <p:tab title="Update">
+                                <div id="formV">
+                                    <h3>Update category//</h3>
+                                    <h:form>
+                                        <p:growl id="msgs" showDetail="true"/>
+                                        <h:panelGrid columns="4" cellpadding="0">
+                                            <p:outputLabel for="costid" value="Cost Id" />
+                                            <p:selectOneMenu class="selectMenu" id="costid" value="#{categoryBean.catId2}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="costid" id="costid2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="repid" value="Representive id" />
+                                            <p:selectOneMenu class="selectMenu"  id="repid" value="#{categoryBean.catId2}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="repid" id="repid2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <h:outputLabel for="costname" value="Cost Name" />
+                                            <p:inputText id="costname" value="#{categoryBean.catname}">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$" />
+                                                <p:ajax update="costname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="costname" id="costname2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="costtype" value="Cost Type" />
+                                            <p:selectOneMenu  id="costtype" class="selectMenu"  value="#{categoryBean.catId2}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="costtype" id="costtype2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <h:outputLabel for="costvalue" value="Cost Value" />
+                                            <p:inputText id="costvalue" value="#{categoryBean.catname}">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$" />
+                                                <p:ajax update="costvalue" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="costvalue" id="costvalue2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="date" value="Date" />
+                                            <p:calendar id="date" value="#{calendarView.date5}" locale="de" navigator="true" pattern="yyyy-MMM-dd" />
+                                            <p:message for="date" display="date2" />
+                                            <h:outputText value="#{customValidationView.email}" />
+
+                                        </h:panelGrid>
+                                        <p:commandButton update="msgs" actionListener="#{categoryBean.doSaveCategory}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Save" ajax="false" icon="ui-icon-check" validateClient="true"/>
+
+                                    </h:form>
+                                </div>
+                            </p:tab>
+                            <p:tab title="Delete">
+                                <div id="formV">
+                                    <h3>Update category//</h3>
+                                    <h:form>
+                                        <p:growl id="msgs" showDetail="true"/>
+                                        <h:panelGrid columns="4" cellpadding="0">
+                                            <p:outputLabel for="costid" value="Cost Id" />
+                                            <p:selectOneMenu class="selectMenu" id="costid" value="#{categoryBean.catId2}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="costid" id="costid2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="repid" value="Representive id" />
+                                            <p:selectOneMenu class="selectMenu"  id="repid" value="#{categoryBean.catId2}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="repid" id="repid2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <h:outputLabel for="costname" value="Cost Name" />
+                                            <p:inputText id="costname" value="#{categoryBean.catname}">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$" />
+                                                <p:ajax update="costname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="costname" id="costname2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="costtype" value="Cost Type" />
+                                            <p:selectOneMenu  id="costtype" class="selectMenu"  value="#{categoryBean.catId2}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="costtype" id="costtype2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <h:outputLabel for="costvalue" value="Cost Value" />
+                                            <p:inputText id="costvalue" value="#{categoryBean.catname}">
+                                                <f:validateRegex pattern="^[a-zA-Z]+$" />
+                                                <p:ajax update="costvalue" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="costvalue" id="costvalue2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="date" value="Date" />
+                                            <p:calendar id="date" value="#{calendarView.date5}" locale="de" navigator="true" pattern="yyyy-MMM-dd" />
+                                            <p:message for="date" display="date2" />
+                                            <h:outputText value="#{customValidationView.email}" />
+
+                                        </h:panelGrid>
+                                        <p:commandButton update="msgs" actionListener="#{categoryBean.doSaveCategory}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Save" ajax="false" icon="ui-icon-check" validateClient="true"/>
+
+                                    </h:form>
+                                </div>
+                            </p:tab>
+                        </p:tabView>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="Template.xhtml">
+            <ui:define name="title">
+                Product
+            </ui:define>
+            <ui:define name="content">
+                <f:facet name="head">
+
+                    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+                    <h:outputStylesheet library="css" name="tabview.css"/>
+                    <h:outputScript library="js" name="jquery-3.1.0.min"/>
+                    <h:outputScript library="js" name="bootstrap.min.js"/>
+
+
+                </f:facet>
+                <div id="tab">                    
+                    <h:form id="form">
+                        <p:growl id="msgs" showDetail="true" />
+                        <h3>Manager//</h3>
+                        <p:tabView orientation="left">
+                            <p:tab title="Insert">
+                                <div id="formV">
+                                    <h3>Add new category//</h3>
+                                    <h:form>
+                                        <p:growl id="msgs" showDetail="true"/>
+                                        <h:panelGrid columns="4" cellpadding="0">
+                                            <h:outputLabel for="supplierid" value="Supplier id" />
+                                            <p:autoComplete id="supplierid" value="#{suppliersBean.suplierId}" placeholder="Supplier id" rendered="true" autoHighlight="true" autocomplete="true" completeMethod="#{autoCompleteBean.completeCatId}">
+                                                <f:validateRegex pattern="^[0-9]+$" />
+                                                <p:ajax update="supplierid2" event="keyup"/>
+                                            </p:autoComplete>
+                                            <p:message for="supplierid" id="supplierid2" display="icon" />
+                                            <h:outputText />
+
+                                            <p:outputLabel for="comname" value="Company Name" />
+                                            <p:selectOneMenu class="selectMenu"  id="comname" value="#{suppliersBean.companyName}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="comname2" id="comname2" display="tooltip" />
+                                            <h:outputText/> 
+
+                                            <h:outputLabel for="conpersonname" value="Contact person name"  />
+                                            <p:inputText id="conpersonname" value="#{suppliersBean.contactPersonName}"  placeholder="contact person name" rendered="true">
+                                                <f:validateRegex pattern="^.*[a-zA-Z]$" />
+                                                <p:ajax update="conpersonname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="conpersonname" id="conpersonname2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="contacttitle" value="Contact title" />
+                                            <p:selectOneMenu  id="contacttitle" class="selectMenu" required="true"  value="#{suppliersBean.contactTitle}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="contacttitle" id="contacttitle2" display="tooltip" />
+                                            <h:outputText/> 
+                                            
+                                            <p:outputLabel for="address"  value="Address"  rendered="true"/>
+                                            <p:inputTextarea id="address" placeholder="working area" value="#{suppliersBean.address}" rows="5" cols="30" counter="display" maxlength="200" counterTemplate="{0} cr" autoResize="false" />
+                                            <p:message for="address" display="tooltip" />
+                                            <h:outputText id="display" />
+                                            
+                                            <h:outputLabel for="phone" value="Phone" />
+                                            <p:inputText id="phone" value="#{suppliersBean.phone}" rendered="true" placeholder="Phone">
+                                                <f:validateRegex pattern="^[0-9]+$" />
+                                                <p:ajax update="phone2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="phone" id="phone2" display="icon" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="mobile" value="Mobile" rendered="true"/>
+                                            <p:inputText id="mobile" value="#{suppliersBean.mobile}" placeholder="mobile">
+                                                <f:validateRegex pattern="^[0-9]{11}+$" />
+                                                <p:ajax update="mobile2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="mobile" id="mobile2" display="icon" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="fax" value="fax" />
+                                            <p:inputText id="fax" value="#{suppliersBean.fax}" placeholder="fax">
+                                                <f:validateRegex pattern="^[0-9]+$" />
+                                                <p:ajax update="fax2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="fax" id="fax2" display="icon" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="email" value="Email" />
+                                            <p:inputText id="email" value="#{suppliersBean.email}" placeholder="email">
+                                                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                                                <p:ajax update="email2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="email" id="email2" display="icon" />
+                                            <h:outputText/>
+                                            
+                                            <h:outputLabel for="website" value="URL" />
+                                            <p:inputText id="website" value="#{suppliersBean.website}" placeholder="www.example.com">
+                                                <f:validateRegex pattern="^(https?:\/\/www\.)?(^(https?:\/\/www\.)[0-9A-Za-z]+\.+[a-z]{2,5})$" />
+                                                <p:ajax update="website2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="website" id="website2" display="icon" />
+                                            <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <p:commandButton update="msgs" actionListener="#{suppliersBean.doSaveSup}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Save" ajax="true" icon="ui-icon-check" validateClient="true"/>
+
+                                    </h:form>
+                                </div>
+                            </p:tab>
+                            <p:tab title="Update">
+                                <div id="formV">
+                                    <h3>Update category//</h3>
+                                    <h:form>
+                                        <p:growl id="msgs" showDetail="true"/>
+                                        <h:panelGrid columns="4" cellpadding="0">
+                                            <p:outputLabel for="supplierid" value="Supplier Id" />
+                                            <p:selectOneMenu class="selectMenu" id="supplierid" value="#{suppliersBean.suplierId}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.supplierIdList}" />
+                                                <p:ajax listener="#{suppliersBean.supplierIdQuery}" update="comname conpersonname contacttitle address phone mobile fax email website" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="supplierid2" id="supplierid2" display="tooltip" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="comname" value="Company name"  />
+                                            <p:inputText id="comname" value="#{suppliersBean.companyName}"  placeholder="Company name" rendered="true">
+                                                <f:validateRegex pattern="^[_a-zA-Z]+$" />
+                                                <p:ajax update="comname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="comname" id="comname2" display="icon" />
+                                            <h:outputText/>                                           
+
+                                            <h:outputLabel for="conpersonname" value="Contact person name"  />
+                                            <p:inputText id="conpersonname" value="#{suppliersBean.contactPersonName}"  placeholder="contact person name" rendered="true">
+                                                <f:validateRegex pattern="^.*[a-zA-Z]$" />
+                                                <p:ajax update="conpersonname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="conpersonname" id="conpersonname2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="contacttitle" value="Contact title" />
+                                            <p:selectOneMenu  id="contacttitle" class="selectMenu" required="true"  value="#{suppliersBean.contactTitle}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="contacttitle" id="contacttitle2" display="tooltip" />
+                                            <h:outputText/> 
+                                            
+                                            <p:outputLabel for="address"  value="Address"  rendered="true"/>
+                                            <p:inputTextarea id="address" placeholder="working area" value="#{suppliersBean.address}" rows="5" cols="30" counter="display" maxlength="200" counterTemplate="{0} cr" autoResize="false" />
+                                            <p:message for="address" display="tooltip" />
+                                            <h:outputText id="display" />
+                                            
+                                            <h:outputLabel for="phone" value="Phone" />
+                                            <p:inputText id="phone" value="#{suppliersBean.phone}" rendered="true" placeholder="Phone">
+                                                <f:validateRegex pattern="^[0-9]+$" />
+                                                <p:ajax update="phone2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="phone" id="phone2" display="icon" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="mobile" value="Mobile" rendered="true"/>
+                                            <p:inputText id="mobile" value="#{suppliersBean.mobile}" placeholder="mobile">
+                                                <f:validateRegex pattern="^[0-9]{11}+$" />
+                                                <p:ajax update="mobile2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="mobile" id="mobile2" display="icon" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="fax" value="fax" />
+                                            <p:inputText id="fax" value="#{suppliersBean.fax}" placeholder="fax">
+                                                <f:validateRegex pattern="^[0-9]+$" />
+                                                <p:ajax update="fax2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="fax" id="fax2" display="icon" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="email" value="Email" />
+                                            <p:inputText id="email" value="#{suppliersBean.email}" placeholder="email">
+                                                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                                                <p:ajax update="email2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="email" id="email2" display="icon" />
+                                            <h:outputText/>
+                                            
+                                            <h:outputLabel for="website" value="URL" />
+                                            <p:inputText id="website" value="#{suppliersBean.website}" placeholder="www.example.com">
+                                                <f:validateRegex pattern="^(https?:\/\/www\.)?(^(https?:\/\/www\.)[0-9A-Za-z]+\.+[a-z]{2,5})$" />
+                                                <p:ajax update="website2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="website" id="website2" display="icon" />
+                                            <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <p:commandButton update="msgs" actionListener="#{suppliersBean.doUpdateSup}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Update" ajax="true" icon="ui-icon-refresh" validateClient="true">
+                                        
+                                        </p:commandButton>
+
+                                    </h:form>
+                                </div>
+                            </p:tab>
+                            <p:tab title="Delete">
+                                <div id="formV">
+                                    <h3>Delete Supplier//</h3>
+                                    <h:form>
+                                        <p:growl id="msgs" showDetail="true"/>
+                                        <h:panelGrid columns="4" cellpadding="0">
+                                            <p:outputLabel for="supplierid" value="Supplier Id" />
+                                            <p:selectOneMenu class="selectMenu" id="supplierid" value="#{suppliersBean.suplierId}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.supplierIdList}" />
+                                                <p:ajax listener="#{suppliersBean.supplierIdQuery}" update="comname conpersonname contacttitle address phone mobile fax email website" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="supplierid2" id="supplierid2" display="tooltip" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="comname" value="Company name"  />
+                                            <p:inputText id="comname" value="#{suppliersBean.companyName}"  placeholder="Company name" rendered="true">
+                                                <f:validateRegex pattern="^[_a-zA-Z]+$" />
+                                                <p:ajax update="comname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="comname" id="comname2" display="icon" />
+                                            <h:outputText/>                                           
+
+                                            <h:outputLabel for="conpersonname" value="Contact person name"  />
+                                            <p:inputText id="conpersonname" value="#{suppliersBean.contactPersonName}"  placeholder="contact person name" rendered="true">
+                                                <f:validateRegex pattern="^.*[a-zA-Z]$" />
+                                                <p:ajax update="conpersonname2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="conpersonname" id="conpersonname2" display="icon" />
+                                            <h:outputText/> 
+
+                                            <p:outputLabel for="contacttitle" value="Contact title" />
+                                            <p:selectOneMenu  id="contacttitle" class="selectMenu" required="true"  value="#{suppliersBean.contactTitle}" effect="fold" editable="false" rendered="true">
+                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
+                                                <f:selectItems value="#{listDao.list}" />
+                                            </p:selectOneMenu>                                        
+                                            <p:message for="contacttitle" id="contacttitle2" display="tooltip" />
+                                            <h:outputText/> 
+                                            
+                                            <p:outputLabel for="address"  value="Address"  rendered="true"/>
+                                            <p:inputTextarea id="address" placeholder="working area" value="#{suppliersBean.address}" rows="5" cols="30" counter="display" maxlength="200" counterTemplate="{0} cr" autoResize="false" />
+                                            <p:message for="address" display="tooltip" />
+                                            <h:outputText id="display" />
+                                            
+                                            <h:outputLabel for="phone" value="Phone" />
+                                            <p:inputText id="phone" value="#{suppliersBean.phone}" rendered="true" placeholder="Phone">
+                                                <f:validateRegex pattern="^[0-9]+$" />
+                                                <p:ajax update="phone2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="phone" id="phone2" display="icon" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="mobile" value="Mobile" rendered="true"/>
+                                            <p:inputText id="mobile" value="#{suppliersBean.mobile}" placeholder="mobile">
+                                                <f:validateRegex pattern="^[0-9]{11}+$" />
+                                                <p:ajax update="mobile2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="mobile" id="mobile2" display="icon" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="fax" value="fax" />
+                                            <p:inputText id="fax" value="#{suppliersBean.fax}" placeholder="fax">
+                                                <f:validateRegex pattern="^[0-9]+$" />
+                                                <p:ajax update="fax2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="fax" id="fax2" display="icon" />
+                                            <h:outputText/> 
+                                            
+                                            <h:outputLabel for="email" value="Email" />
+                                            <p:inputText id="email" value="#{suppliersBean.email}" placeholder="email">
+                                                <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                                                <p:ajax update="email2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="email" id="email2" display="icon" />
+                                            <h:outputText/>
+                                            
+                                            <h:outputLabel for="website" value="URL" />
+                                            <p:inputText id="website" value="#{suppliersBean.website}" placeholder="www.example.com">
+                                                <f:validateRegex pattern="^(https?:\/\/www\.)?(^(https?:\/\/www\.)[0-9A-Za-z]+\.+[a-z]{2,5})$" />
+                                                <p:ajax update="website2" event="keyup"/>
+                                            </p:inputText>
+                                            <p:message for="website" id="website2" display="icon" />
+                                            <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <p:commandButton update="msgs" actionListener="#{suppliersBean.doDeleteSup}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Delete" ajax="true" icon="ui-icon-trash" validateClient="true"/>
+
+                                    </h:form>
+                                </div>
+                            </p:tab>
+                        </p:tabView>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

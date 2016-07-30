@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 23, 2016 4:01:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bexpress.pojo.PurchasesCost" table="purchases_cost" catalog="bexpresstest" optimistic-lock="version">
+        <id name="costId" type="java.lang.Integer">
+            <column name="cost_id" />
+            <generator class="identity" />
+        </id>
+        <property name="representiveId" type="java.lang.Integer">
+            <column name="representive_id" />
+        </property>
+        <property name="costName" type="string">
+            <column name="cost_name" length="45" />
+        </property>
+        <property name="costType" type="string">
+            <column name="cost_type" length="45" />
+        </property>
+        <property name="costValue" type="string">
+            <column name="cost_value" length="45" />
+        </property>
+        <property name="costDate" type="date">
+            <column name="cost_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

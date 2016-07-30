@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="Stylesheet" href="resources/css/bexpress_reg.css" title="text/css"/>
+    </h:head>
+    <h:body>
+        <div id="form_for_Reg" align="center">
+            <h:form enctype="multipart/form-data">
+                <h1>Registration Form</h1>
+                <hr/>
+                <p:inputText id="username" placeholder="username" value="#{bmanagerMB.bm.username}"/>               
+                <p:inputText id="name" placeholder="Your name" value="#{bmanagerMB.bm.name}"/> 
+                <p:inputText id="com_id" placeholder="Id Number" value="#{bmanagerMB.bm.comId}"/>
+                <p:inputText id="desig" placeholder="Designation" value="Business Manager" disabled="true"/>               
+                <p:inputText id="email" placeholder="Email address" value="#{bmanagerMB.bm.email}">
+                  <f:facet name="email" parent="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@+[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"/>
+                </p:inputText>
+                <p:password id="password" placeholder="Password" value="#{bmanagerMB.bm.password}"/>
+                <p:fileUpload value="#{fileUploadView.file}" mode="simple" sizeLimit="2048"/>
+                <p:commandButton value="Submit" action="login" id="btn" actionListener="#{bmanagerMB.modifyBM()}"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

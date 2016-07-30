@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 23, 2016 4:01:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bexpress.pojo.Bmanager" table="bmanager" catalog="bexpresstest" optimistic-lock="version">
+        <id name="bmanagerId" type="int">
+            <column name="bmanager_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="65535" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="65535" />
+        </property>
+        <property name="comId" type="java.lang.Integer">
+            <column name="com_id" />
+        </property>
+        <property name="designation" type="string">
+            <column name="designation" length="65535" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="65535" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

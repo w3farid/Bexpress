@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 23, 2016 4:01:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bexpress.pojo.Return" table="return" catalog="bexpresstest" optimistic-lock="version">
+        <id name="returnId" type="int">
+            <column name="return_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="repId" type="java.lang.Integer">
+            <column name="rep_id" />
+        </property>
+        <property name="repName" type="string">
+            <column name="rep_name" length="45" />
+        </property>
+        <property name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
+        </property>
+        <property name="proName" type="string">
+            <column name="pro_name" length="45" />
+        </property>
+        <property name="stock" type="java.lang.Integer">
+            <column name="stock" />
+        </property>
+        <property name="date" type="date">
+            <column name="date_time" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,118 @@
+#tab .ui-tabs {
+    background-color: transparent;
+    padding: 0.2em;
+    position: relative;
+}
+#tab a{
+    color: #fff !important;
+    font-weight: normal !important;
+
+
+}
+#tab a:hover , a:active,a:focus{
+    background-color:   #283747  !important;
+    width: 100% !important;  
+    cursor: pointer;
+    box-shadow: none !important;
+
+}
+#tab .ui-tabs-left > .ui-tabs-nav {
+    background-color:  #283747  !important;   
+    background:  #283747  !important;   
+    float: left;
+    height: 334px;
+    padding-top: 1px;
+    width: 10%;
+    box-shadow: none !important;
+    color: white !important;
+}
+#tab .ui-state-default{
+    background-color:  #34495e  !important;
+    background:   #34495e   !important;   
+    border: none !important;
+    padding-left: 0px !important;
+    box-shadow: none !important;
+    color: white !important;
+
+}
+#tab .ui-state-default:hover{
+    background-color: #283747 !important;
+    color: white !important;
+}
+#tab .ui-inputfield{
+    background: transparent !important
+        background-color: transparent !important
+}
+/*#tab .ui-tabs {
+    background-color: transparent;
+    padding: 0.2em;
+    position: relative;
+}
+#tab a{
+    color: #fff !important;
+    font-weight: normal !important;
+
+
+}
+#tab a:hover , a:active,a:focus{
+    background-color:   #283747  !important;
+    width: 100% !important;  
+    cursor: pointer;
+    box-shadow: none !important;
+
+}*/
+
+#formV .ui-state-default{
+    background-color:   #f2f3f4   !important;
+    background:  #f2f3f4  !important;
+    padding-left: 0px !important;   
+    color:  #154360  !important;
+    width: 10% !important; 
+}
+#formV .ui-state-default:hover{
+    background-color:   transparent   !important;
+    background:  transparent  !important;
+    color: #000 !important;
+}
+#formV .ui-state-default {
+    background: transparent none repeat scroll 0 0 !important;
+    color: #154360 !important;
+    padding-left: 10px !important;
+    width: 10% !important;
+}
+#formV .ui-inputfield {
+    /*  border: 3px solid #b9770e !important;
+      border-radius: 5px;*/
+    overflow: hidden !important;
+    width: 398px !important;
+}
+#formV table, td,th{
+    border-spacing: 20px !important;
+    border-collapse:separate !important;
+    border-collapse: collapse !important;
+    border: 2px solid #154360 !important;    
+}
+#formV table, td:hover,th:hover{
+    border: 2px solid  #e59866  !important;
+}
+#formV .ui-icon{
+    color: #fff !important;
+    width: 20px !important;
+    background-color: #dc7633 !important;
+    font-weight: normal !important;
+}
+#formV .ui-selectonemenu .ui-selectonemenu-trigger .ui-icon {
+  margin-top: 8px;
+  margin-left: 3px !important;
+}
+ .ui-selectonemenu-panel {
+  left: 591.483px !important;
+  top: 100.55px !important;
+  width: 282px !important;
+  z-index: 1008 !important;
+}
+#formV .selectMenu{
+    width: 100% !important;
+    
+}
+

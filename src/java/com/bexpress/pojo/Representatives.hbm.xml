@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 23, 2016 4:01:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bexpress.pojo.Representatives" table="representatives" catalog="bexpresstest" optimistic-lock="version">
+        <id name="repId" type="java.lang.Integer">
+            <column name="rep_id" />
+            <generator class="identity" />
+        </id>
+        <property name="repName" type="string">
+            <column name="rep_name" length="45" />
+        </property>
+        <property name="comId" type="string">
+            <column name="com_id" length="45" />
+        </property>
+        <property name="supId" type="string">
+            <column name="sup_id" length="45" />
+        </property>
+        <property name="managerId" type="string">
+            <column name="manager_id" length="45" />
+        </property>
+        <property name="area" type="string">
+            <column name="area" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

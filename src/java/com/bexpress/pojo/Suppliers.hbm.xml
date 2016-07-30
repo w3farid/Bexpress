@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 23, 2016 4:01:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bexpress.pojo.Suppliers" table="suppliers" catalog="bexpresstest" optimistic-lock="version">
+        <id name="suplierId" type="int">
+            <column name="suplier_Id" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyName" type="string">
+            <column name="company_name" length="45" />
+        </property>
+        <property name="contactPersonName" type="string">
+            <column name="contact_person_name" length="45" />
+        </property>
+        <property name="contactTitle" type="string">
+            <column name="contact_title" length="45" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="45" />
+        </property>
+        <property name="phone" type="string">
+            <column name="Phone" length="45" />
+        </property>
+        <property name="mobile" type="java.lang.Integer">
+            <column name="mobile" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="website" type="string">
+            <column name="website" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

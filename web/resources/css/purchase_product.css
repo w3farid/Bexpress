@@ -1,0 +1,155 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 26, 2016, 3:46:24 PM
+    Author     : FG
+*/
+
+hr {
+  color: #4caf50;
+  margin-bottom: 18px;
+  margin-top: -18px;
+  padding-top: 0;
+}
+#wrapper{
+    width: 100%;
+}
+#reg_head {
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  height: 28px;
+  padding: 5px;
+}
+#purchaseproductfromsuplier {
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  bottom: 0;
+  box-shadow: 0 2px 12px 0 #777;
+  height: auto;
+  left: 0;
+  margin: auto;
+  padding: 30px;
+  
+  right: 0;
+  top: 0;
+  width: 44%;
+}
+#login_logo{
+    align-items: center;
+}
+#form_for_Reg {
+  border-radius: 12px;
+  bottom: 0;
+  box-shadow: 0 2px 12px 0 #777;
+  height: 474px;
+  left: 0;
+  margin: auto;
+  padding: 30px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 360px;
+}
+.ui-inputfield {
+  font-weight: normal;
+  height: 38px;
+  margin-bottom: 6px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  outline-color: -moz-use-text-color;
+  outline-style: none;
+  outline-width: medium;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 4px;
+  text-align: center;
+  width: 268px;
+}
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+  box-shadow: 0 2px 2px #fff inset;
+}
+.ui-inputfield.ui-state-focus, .ui-widget-content .ui-inputfield.ui-state-focus, .ui-widget-header .ui-inputfield.ui-state-focus {
+  box-shadow: 0 0 5px #fff, 0 2px 2px #fff inset;
+}
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+  background-attachment: scroll;
+  background-clip: content-box;
+  background-color: #fff;
+  background-image: none;
+  background-origin: padding-box;
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto auto;
+  color: #383838;
+}
+.ui-corner-all {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-color: #4caf50;
+}
+.ui-button {
+  background-color: #4caf50;
+  cursor: pointer;
+  display: inline-block;
+  height: 44px;
+  margin-left: 193px;
+  margin-top: 7px;
+  overflow: visible;
+  padding-right: 15px;
+  position: relative;
+  text-align: center;
+  text-decoration: none !important;
+  width: 177px;
+}
+
+.ui-selectonemenu {
+  cursor: pointer;
+  display: inline-block;
+  padding-right: 2em;
+  position: relative;
+  width: 242px;
+}
+.ui-selectonemenu .ui-selectonemenu-label {
+  border: 0 none;
+  display: block;
+  font-weight: normal;
+  height: 33px;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 11px;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+  width: 111%;
+}
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+  background: #ffffff none repeat scroll 0 0;
+  color: #383838;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  background: #4caf50 -moz-linear-gradient(center top , rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)) repeat scroll 0 0;
+  color: #fff;
+  text-shadow: 1px 1px 1px #333;
+}
+.ui-selectonemenu .ui-selectonemenu-trigger {
+  border-bottom: 0 none;
+  border-right: 0 none;
+  border-top: 0 none;
+  cursor: pointer;
+  display: none;
+  height: 100%;
+  padding: 0 3px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 16px;
+}

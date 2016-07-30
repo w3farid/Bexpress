@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 23, 2016 4:01:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bexpress.pojo.Category" table="category" catalog="bexpresstest" optimistic-lock="version">
+        <id name="catId" type="int">
+            <column name="cat_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="catName" type="string">
+            <column name="cat_name" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

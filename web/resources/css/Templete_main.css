@@ -1,0 +1,195 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 17, 2016, 6:12:01 PM
+    Author     : Farid
+*/
+body{
+    padding: 0;
+    margin: 0;    
+}
+a{
+    text-decoration: none;
+}
+
+
+#window{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+#wrapper{
+    width: 100%;
+    height: auto;
+}
+#north .logo .glyphicon {
+    color: #fcaf50;
+    font-size: 26px;
+    padding-left: 38px;
+    padding-top: 9px;
+}
+#north{
+    width: 100%;
+    height: auto;
+    box-shadow: 10px 1px 5px #111111;
+}
+#north .north_navigationbar{
+    width: 100%;
+    height: 43px;
+    background-color: #f8f9f9;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+#north .logo{
+    width: 10%;
+    float: left;
+    color: #fff;
+}
+#north .menubar{
+    width: 90%;
+    float: right;
+}
+#north .nav1 {
+    list-style-type: none;
+    padding-top: 10px;
+}
+#north .nav1 li {
+    color: #b1b1b1;
+    display: inline;
+    padding: 10px;
+}
+#north .nav1 li:hover {
+    color: #fff;
+    display: inline;
+    padding: 10px;
+}
+#north .nav1 li a {
+    color: #afafaf;
+    display: inline;
+    font-weight: bold;
+}
+#north .nav1 li a:hover,active,focus {
+    color: #d9edf7;
+    text-decoration: none;
+}
+#north .north_user {
+    background: #4cae4c;
+    height: 26px;
+    margin-top: 43px;
+    padding-right: 50px;
+    padding-top: 3px;
+    box-shadow: #000;
+}
+.hoverMenu_dateEntry{
+    display: table;
+}
+
+.hoverMenu_dateEntry:hover{
+    display: inline;
+   
+}
+#t100{
+    display: none;
+}
+#t100:hover{
+    display: inline-block;
+    visibility: visible;
+}
+#north .username{
+    float: right;
+    text-align: right;
+}
+#north .dashboard {    
+    float: left;
+    padding-left: 33px;
+    text-align: left;
+    width: 50%;
+
+}
+#north .dashboard, p {
+    color: #afafaf;
+    font-weight: bold;
+
+}
+#north .dashboard .glyphicon {
+    color: #dfdfdf;
+    padding-right: 5px;
+}
+
+#north.north_navigationbar{
+    width: 100
+}
+#center {
+  background-image: url("../images/body-bg-02.jpg");
+  height: auto;
+  margin-top: 0;
+  padding: 1px;
+  width: 100%;
+  overflow: auto;
+}
+.center_chartRoom{
+    width: 80%;
+    
+    float: left;
+}
+.center_summarybar{
+    width: 20%;   
+    float: right;
+}
+.center_bexpress_summary_box {
+  background-color: #e2e2e2;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-shadow: 10px 5px 13px #444;
+  height: 120px;
+  margin-top: 27px;
+  width: 100%;
+  border: 1px solid #4caf50;
+}
+.center_bexpress_summary_box .thead {
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-left: 13px;
+}
+#south {
+    background-color: #444;
+    bottom: 0px;
+    left: 0px;
+    color: #fff;
+    height: 56px;
+    position: fixed;
+    width: 100%;
+   
+    
+}
+
+#south .copyright .south_footer {
+    color: #7a7a69;
+    float: left;
+    font-size: 13px;
+    padding-top: 16px;
+    text-align: right;
+    width: 50%;
+}
+#south .logout{
+    width: 50%;
+    float: right;
+}
+#south .logout .glyphicon {
+    float: right;
+    font-size: 26px;
+    padding: 14px;
+}
+
