@@ -1,0 +1,16 @@
+#returnProduct .ui-inputfield {
+  font-weight: normal;
+  margin: 0;
+  outline: medium none;
+  padding: 4px;
+  text-align: right;
+  background-color: #fff;
+}
+#returnProduct .ui-inputfield:hover{
+  font-weight: normal;
+  margin: 0;
+  outline: medium none;
+  padding: 4px;
+  text-align: right;
+  background-color: #fff;
+}

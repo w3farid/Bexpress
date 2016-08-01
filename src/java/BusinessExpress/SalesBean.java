@@ -195,6 +195,7 @@ public class SalesBean {
                     setRoute3(rs.getString("rep_name").toUpperCase() + "-" + rs.getString("route_no"));
                     setRepIdR3(rs.getInt(1));
                     setRepName3(rs.getString("rep_name").toUpperCase());
+                   
                 }
 
                 if (rs.getString("route_no").equals("4")) {
@@ -1406,112 +1407,130 @@ public class SalesBean {
     }
 
     public void doSave() {
-        Integer counter=new Integer(5250);
+        Integer counter = new Integer(5250);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date1 = sdf.format(date);
         Connection con = null;
+        String checkDate = null;
+        String checkrepId = null;
 
         try {
             con = Database.getConnection();
-            String sql1 = "insert into sales values(?,?,?,?,?,?,?,?,?,?,?)";
-            String sql2 = "insert into sales values(?,?,?,?,?,?,?,?,?,?,?)";
-            String sql3 = "insert into sales values(?,?,?,?,?,?,?,?,?,?,?)";
-            String sql4 = "insert into sales values(?,?,?,?,?,?,?,?,?,?,?)";
-            String sql5 = "insert into sales values(?,?,?,?,?,?,?,?,?,?,?)";
-            String sql6 = "insert into sales values(?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement stm1 = con.prepareStatement(sql1);
-            stm1.setInt(1, (int) Math.round(Math.random()));
-            stm1.setInt(2, repIdR1);
-            stm1.setString(3, repName1);
-            stm1.setInt(4, Integer.parseInt(r1p1));
-            stm1.setInt(5, Integer.parseInt(r1p2));
-            stm1.setInt(6, Integer.parseInt(r1p3));
-            stm1.setInt(7, Integer.parseInt(r1p4));
-            stm1.setInt(8, Integer.parseInt(r1p5));
-            stm1.setDouble(9, ntpar1+ntpbr1+ntpcr1+ntpdr1+ntper1);
-            stm1.setInt(10, opa+opb+opc+opd+ope);
-            stm1.setDate(11, java.sql.Date.valueOf(date1));
+            PreparedStatement stm = con.prepareStatement("select * from sales where rep_id=? and date=?");
+            stm.setInt(1, repIdR1);
+            stm.setDate(2, java.sql.Date.valueOf(date1));
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                checkDate = rs.getString("date");
+                checkrepId = rs.getString("rep_id");
+            }
+        } catch (Exception e) {
 
-            PreparedStatement stm2 = con.prepareStatement(sql2);
-            stm2.setInt(1, (int) Math.round(Math.random())+1);
-            stm2.setInt(2, repIdR2);
-            stm2.setString(3, repName2);
-            stm2.setInt(4, Integer.parseInt(r2p1));
-            stm2.setInt(5, Integer.parseInt(r2p2));
-            stm2.setInt(6, Integer.parseInt(r2p3));
-            stm2.setInt(7, Integer.parseInt(r2p4));
-            stm2.setInt(8, Integer.parseInt(r2p5));
-            stm2.setDouble(9, ntpar2+ntpbr2+ntpcr2+ntpdr1+ntper2);
-            stm2.setInt(10, opa+opb+opc+opd+ope);
-            stm2.setDate(11, java.sql.Date.valueOf(date1));
+        }
 
-            PreparedStatement stm3 = con.prepareStatement(sql3);
-            stm3.setInt(1, (int) Math.round(Math.random())+2);
-            stm3.setInt(2, repIdR3);
-            stm3.setString(3, repName3);
-            stm3.setInt(4, Integer.parseInt(r3p1));
-            stm3.setInt(5, Integer.parseInt(r3p2));
-            stm3.setInt(6, Integer.parseInt(r3p3));
-            stm3.setInt(7, Integer.parseInt(r3p4));
-            stm3.setInt(8, Integer.parseInt(r3p5));
-            stm3.setDouble(9, ntpar3+ntpbr3+ntpcr3+ntpdr3+ntper3);
-            stm3.setInt(10, opa+opb+opc+opd+ope);
-            stm3.setDate(11, java.sql.Date.valueOf(date1));
+        try {
+            if (checkrepId == null && checkDate == null) {
+                con = Database.getConnection();
+                String sql1 = "insert into sales (rep_id, rep_name, xiongshiA, YitongB, YITONGC, YITONGD, XiongshiE, unit_price, offer, date) values(?,?,?,?,?,?,?,?,?,?)";
+                String sql2 = "insert into sales (rep_id, rep_name, xiongshiA, YitongB, YITONGC, YITONGD, XiongshiE, unit_price, offer, date) values(?,?,?,?,?,?,?,?,?,?)";
+                String sql3 = "insert into sales (rep_id, rep_name, xiongshiA, YitongB, YITONGC, YITONGD, XiongshiE, unit_price, offer, date) values(?,?,?,?,?,?,?,?,?,?)";
+                String sql4 = "insert into sales (rep_id, rep_name, xiongshiA, YitongB, YITONGC, YITONGD, XiongshiE, unit_price, offer, date) values(?,?,?,?,?,?,?,?,?,?)";
+                String sql5 = "insert into sales (rep_id, rep_name, xiongshiA, YitongB, YITONGC, YITONGD, XiongshiE, unit_price, offer, date) values(?,?,?,?,?,?,?,?,?,?)";
+               String sql6 = "insert into sales (rep_id, rep_name, xiongshiA, YitongB, YITONGC, YITONGD, XiongshiE, unit_price, offer, date) values(?,?,?,?,?,?,?,?,?,?)";
+                PreparedStatement stm1 = con.prepareStatement(sql1);
+                stm1.setInt(1, repIdR1);
+                stm1.setString(2, repName1);
+                stm1.setInt(3, Integer.parseInt(r1p1));
+                stm1.setInt(4, Integer.parseInt(r1p2));
+                stm1.setInt(5, Integer.parseInt(r1p3));
+                stm1.setInt(6, Integer.parseInt(r1p4));
+                stm1.setInt(7, Integer.parseInt(r1p5));
+                stm1.setDouble(8, ntpar1 + ntpbr1 + ntpcr1 + ntpdr1 + ntper1);
+                stm1.setInt(9, opa + opb + opc + opd + ope);
+                stm1.setDate(10, java.sql.Date.valueOf(date1));
 
-            PreparedStatement stm4 = con.prepareStatement(sql4);
-            stm3.setInt(1, (int) Math.round(Math.random())+3);
-            stm3.setInt(2, repIdR4);
-            stm3.setString(3, repName4);
-            stm3.setInt(4, Integer.parseInt(r4p1));
-            stm3.setInt(5, Integer.parseInt(r4p2));
-            stm3.setInt(6, Integer.parseInt(r4p3));
-            stm3.setInt(7, Integer.parseInt(r4p4));
-            stm3.setInt(8, Integer.parseInt(r4p5));
-            stm3.setDouble(9, ntpar4+ntpbr4+ntpcr4+ntpdr4+ntper4);
-            stm3.setInt(10, opa+opb+opc+opd+ope);
-            stm3.setDate(11, java.sql.Date.valueOf(date1));
-            
-            PreparedStatement stm5 = con.prepareStatement(sql5);
-            stm3.setInt(1, (int) (int) Math.round(Math.random())+4);
-            stm3.setInt(2, repIdR5);
-            stm3.setString(3, repName5);
-            stm3.setInt(4, Integer.parseInt(r5p1));
-            stm3.setInt(5, Integer.parseInt(r5p2));
-            stm3.setInt(6, Integer.parseInt(r5p3));
-            stm3.setInt(7, Integer.parseInt(r5p4));
-            stm3.setInt(8, Integer.parseInt(r5p5));
-            stm3.setDouble(9, ntpar5+ntpbr5+ntpcr5+ntpdr5+ntper5);
-            stm3.setInt(10, opa+opb+opc+opd+ope);
-            stm3.setDate(11, java.sql.Date.valueOf(date1));
-            
-            PreparedStatement stm6 = con.prepareStatement(sql6);
-            stm3.setInt(1, (int) (int) Math.round(Math.random())+6);
-            stm3.setInt(2, repIdR6);
-            stm3.setString(3, repName6);
-            stm3.setInt(4, Integer.parseInt(r6p1));
-            stm3.setInt(5, Integer.parseInt(r6p2));
-            stm3.setInt(6, Integer.parseInt(r6p3));
-            stm3.setInt(7, Integer.parseInt(r6p4));
-            stm3.setInt(8, Integer.parseInt(r6p5));
-            stm3.setDouble(9, ntpar6+ntpbr6+ntpcr6+ntpdr6+ntper6);
-            stm3.setInt(10, opa+opb+opc+opd+ope);
-            stm3.setDate(11, java.sql.Date.valueOf(date1));
-            
-            int r1 = stm1.executeUpdate();
-            int r2 = stm2.executeUpdate();
-            int r3 = stm3.executeUpdate();
-            int r4 = stm4.executeUpdate();
-            int r5 = stm5.executeUpdate();
-            int r6 = stm6.executeUpdate();
-            
-            if (r1 > 0 && r2>0 && r3>0 && r4>0 && r5>0 && r6>0) {               
-                addMessage("saved");
+                PreparedStatement stm2 = con.prepareStatement(sql2);
+
+                stm2.setInt(1, repIdR2);
+                stm2.setString(2, repName2);
+                stm2.setInt(3, Integer.parseInt(r2p1));
+                stm2.setInt(4, Integer.parseInt(r2p2));
+                stm2.setInt(5, Integer.parseInt(r2p3));
+                stm2.setInt(6, Integer.parseInt(r2p4));
+                stm2.setInt(7, Integer.parseInt(r2p5));
+                stm2.setDouble(8, ntpar2 + ntpbr2 + ntpcr2 + ntpdr1 + ntper2);
+                stm2.setInt(9, opa + opb + opc + opd + ope);
+                stm2.setDate(10, java.sql.Date.valueOf(date1));
+
+                PreparedStatement stm3 = con.prepareStatement(sql3);
+                stm3.setInt(1, repIdR3);
+                stm3.setString(2, repName3);
+                stm3.setInt(3, Integer.parseInt(r3p1));
+                stm3.setInt(4, Integer.parseInt(r3p2));
+                stm3.setInt(5, Integer.parseInt(r3p3));
+                stm3.setInt(6, Integer.parseInt(r3p4));
+                stm3.setInt(7, Integer.parseInt(r3p5));
+                stm3.setDouble(8, ntpar3 + ntpbr3 + ntpcr3 + ntpdr3 + ntper3);
+                stm3.setInt(9, opa + opb + opc + opd + ope);
+                stm3.setDate(10, java.sql.Date.valueOf(date1));
+
+                PreparedStatement stm4 = con.prepareStatement(sql4);
+
+                stm4.setInt(1, repIdR4);
+                stm4.setString(2, repName4);
+                stm4.setInt(3, Integer.parseInt(r4p1));
+                stm4.setInt(4, Integer.parseInt(r4p2));
+                stm4.setInt(5, Integer.parseInt(r4p3));
+                stm4.setInt(6, Integer.parseInt(r4p4));
+                stm4.setInt(7, Integer.parseInt(r4p5));
+                stm4.setDouble(8, ntpar4 + ntpbr4 + ntpcr4 + ntpdr4 + ntper4);
+                stm4.setInt(9, opa + opb + opc + opd + ope);
+                stm4.setDate(10, java.sql.Date.valueOf(date1));
+
+                PreparedStatement stm5 = con.prepareStatement(sql5);
+
+                stm5.setInt(1, repIdR5);
+                stm5.setString(2, repName5);
+                stm5.setInt(3, Integer.parseInt(r5p1));
+                stm5.setInt(4, Integer.parseInt(r5p2));
+                stm5.setInt(5, Integer.parseInt(r5p3));
+                stm5.setInt(6, Integer.parseInt(r5p4));
+                stm5.setInt(7, Integer.parseInt(r5p5));
+                stm5.setDouble(8, ntpar5 + ntpbr5 + ntpcr5 + ntpdr5 + ntper5);
+                stm5.setInt(9, opa + opb + opc + opd + ope);
+                stm5.setDate(10, java.sql.Date.valueOf(date1));
+
+                PreparedStatement stm6 = con.prepareStatement(sql6);
+
+                stm6.setInt(1, repIdR6);
+                stm6.setString(2, repName6);
+                stm6.setInt(3, Integer.parseInt(r6p1));
+                stm6.setInt(4, Integer.parseInt(r6p2));
+                stm6.setInt(5, Integer.parseInt(r6p3));
+                stm6.setInt(6, Integer.parseInt(r6p4));
+                stm6.setInt(7, Integer.parseInt(r6p5));
+                stm6.setDouble(8, ntpar6 + ntpbr6 + ntpcr6 + ntpdr6 + ntper6);
+                stm6.setInt(9, opa + opb + opc + opd + ope);
+                stm6.setDate(10, java.sql.Date.valueOf(date1));
+
+                int r1 = stm1.executeUpdate();
+                int r2 = stm2.executeUpdate();
+                int r3 = stm3.executeUpdate();
+                int r4 = stm4.executeUpdate();
+                int r5 = stm5.executeUpdate();
+                int r6 = stm6.executeUpdate();
+
+                if (r3 > 0) {
+                    addMessage("saved");
+                } else {
+                    addMessage("Not Saved");
+                }
             } else {
-                addMessage("Not Saved");
+                this.addMessage("Update Features not available in this moment.");
             }
         } catch (Exception e) {
             addMessage("Exception");
-            addMessage(e.toString());
+            addMessage(e.getMessage());
         }
     }
 
@@ -1570,7 +1589,7 @@ public class SalesBean {
 
     public static void main(String[] args) throws SQLException {
         SalesBean s = new SalesBean();
-
+        s.gradeCheck();
     }
 
     public String getR1p1() {

@@ -17,7 +17,7 @@
                 </f:facet>
                 <h:form>
                     <div class="table-responsive">
-                        <p:growl id="growl" life="20000" />
+                        <p:growl id="growl" life="40000" />
                         <table class="table">
                             <tr>
                                 <th>Date: <p:calendar id="german" value="#{salesBean.date}" locale="de" navigator="true" pattern="yyyy-MM-dd" /></th>
@@ -64,7 +64,7 @@
                                 <th>C</th>
                                 <th>D</th>
                                 <th colspan="10">
-                                    <p:commandButton process="@form" value="Save" action="#{salesBean.doSave}"  id="ajax" update="growl" ajax="false" styleClass="ui-priority-primary" />
+                                    <p:commandButton process="@form" value="Save" action="#{salesBean.doSave}"  id="ajax" update="growl" ajax="false" styleClass="ui-priority-primary" class="btn btn-success" />
                                 </th>
                             </tr>
                             <tr>
