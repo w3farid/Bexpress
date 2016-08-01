@@ -27,12 +27,12 @@
                     <h:form>
                         <p:growl id="messages"/>
                         <p:menuButton value="Employees" class="navbtn1" id="navbtn1">
-                            <p:menuitem value="Manager" action="manager" actionListener="#{menuBean.employeeMenu}" update="messages"/>                       
-                            <p:menuitem value="Representatives" action="representatives" actionListener="#{menuBean.employeeMenu}" update="messages"/>                        
-                            <p:menuitem value="Supervisor" action="supervisor" actionListener="#{menuBean.employeeMenu}" update="messages"/>
-                            <p:menuitem value="Suplier" action="suplier" actionListener="#{menuBean.employeeMenu}" update="messages"/>
+                            <p:menuitem value="Manager" url="manager.xhtml" update="messages"/>                       
+                            <p:menuitem value="Representatives" url="representatives.xhtml"/>                        
+                            <p:menuitem value="Supervisor" url="supervisor.xhtml"/>
+                            <p:menuitem value="Suplier" url="suplier.xhtml"/>
                             <p:separator />
-                            <p:menuitem value="Home" url="http://www.primefaces.org"/>
+                            <p:menuitem value="Home" url="businessExpressHomePage.xhtml"/>
                         </p:menuButton>
                     </h:form>
                 </div>
@@ -40,11 +40,12 @@
                     <h:form>
                         <p:growl id="messages"/>
                         <p:menuButton value="Transactions" class="navbtn1" id="navbtn1">                            
-                            <p:menuitem value="Lifting" action="purchasesProduct" actionListener="#{menuBean.transactionMenu()}" update="messages"/>                                
+                            <p:menuitem value="Lifting" url="purchasesProduct.xhtml"/>                               
+                            <p:menuitem value="Cost Management" url="purchases_cost.xhtml"/>                               
                            
-                            <p:menuitem value="Sales" action="orders" actionListener="#{menuBean.transactionMenu()}" update="messages"/>                        
-                            <p:menuitem value="Return Sales" action="return" actionListener="#{menuBean.transactionMenu()}" update="messages"/>
-                            <p:menuitem value="QC Product" actionListener="#{menuView.delete}" update="messages"/>
+                            <p:menuitem value="Sales" url="Sales.xhtml"/>                             
+                            <p:menuitem value="Return Sales" url="returnProduct.xhtml"/>      
+                            <p:menuitem value="QC Product" url="QCProduct.xhtml"/>      
                             <p:separator />
                             <p:menuitem value="Home" url="#"/>
 
@@ -74,7 +75,7 @@
                     <h:form>
                          <p:growl id="messages"/>
                         <p:menuButton value="Reports" class="navbtn1" id="navbtn1">                            
-                            <p:menuitem value="Sales" url="http://www.primefaces.org"/>
+                            <p:menuitem value="Sales" url="/reports/salesReportTable.xhtml" />
                             <p:menuitem value="Purchases" url="http://www.primefaces.org"/>
                             <p:menuitem value="Purchases" url="http://www.primefaces.org"/>
                             <p:menuitem value="returns" url="http://www.primefaces.org"/>
