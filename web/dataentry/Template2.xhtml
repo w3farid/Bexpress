@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>        
+        <h:outputStylesheet name="css/menubar.css"/>
+        <title> <ui:insert name="title"/></title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top" style="">
+            <div style="width: 100%; clear: both;">
+                <div style="float: left; width: 152px;">
+                    <a style="background-color: transparent; cursor: default; " href="#"> <p:graphicImage url="../resources/images/logo.png" library="resources" style="height: 30px; margin-left: 24px; width: 24px;
+                                    background-color: transparent; transform: rotate(20deg); "/>
+                    <span id="logTxt">Express</span> </a>       
+                </div>
+                <div id="allnavmenu" style="margin-right: 10%;">
+                    <h:form>
+                        <p:growl id="messages"/>
+                        <p:menuButton value="Data Entry" class="navbtn1" id="navbtn1">
+                            <p:menuitem value="Web entry" url="/returnProduct2.xhtml" ajax="false"/>                       
+                            <p:menuitem value="Cost entry" url="/purchases_cost2.xhtml"/>                        
+                            <p:menuitem value="Supervisor" url="/supervisor.xhtml"/>
+                            <p:separator />
+                            <p:menuitem value="Home" url="/detemplete.xhtml"/>
+                        </p:menuButton>
+                    </h:form>
+                </div>
+                
+                
+                <div id="allnavmenu">
+                    <h:form>
+                         <p:growl id="messages"/>
+                        <p:menuButton value="Reports" class="navbtn1" id="navbtn1">                            
+                            <p:menuitem value="Sales" url="/dataentry/salesReportTable2.xhtml" />
+                            <p:menuitem value="Return Sales" url="/dataentry/returnSalesReport2.xhtml"/>
+                            <p:menuitem value="Purchases" url="#"/>
+                            <p:menuitem value="returns" url="#"/>
+                            <p:menuitem value="QC" url="#"/>
+
+                        </p:menuButton>
+                    </h:form>
+                </div>
+            </div>
+            <!--END MENU BAR........-->
+            <div id="userBar">
+                <span id="dashboard"><p:graphicImage url="../resources/images/home.png" library="resources"/>
+                    Dashboard
+                </span>
+                <span id="username">
+                    Data Entry Operator // #{loginBean.username}
+                </span>
+            </div>
+
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+                content
+            </ui:insert>
+        </div>
+
+        <div id="bottom">
+
+            <div style="width: 70%; float: left;" id="footer_txt"><span class="footer_txt">Developed &and; Managed by </span>Farid</div>
+
+
+            <div id="logout">
+                <h:form>
+                    <p:commandButton class="logoutButton" ajax="true" image="save" value="Logout" action="#{loginBean.logout()}"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+
+    </h:body>
+
+</html>

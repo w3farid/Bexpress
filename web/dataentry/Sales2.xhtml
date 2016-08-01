@@ -1,0 +1,619 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="Template2.xhtml">
+            <ui:define name="content">
+                <f:facet name="head">
+                    <h:outputStylesheet name="bootstrap.min.css" library="css"/>
+                    <h:outputStylesheet name="salesContributeTableDivStyle.css" library="css"/>
+                </f:facet>
+                <h:form>
+                    <div class="table-responsive">
+                        <p:growl id="growl" life="40000" />
+                        <table class="table">
+                            <tr>
+                                <th>Date: <p:calendar id="german" value="#{salesBean.date}" locale="de" navigator="true" pattern="yyyy-MM-dd" /></th>
+                                <th> Xiongshi(XSDST-2) </th>
+                                <th>Yitong(XS-818T)</th>
+                                <th>YITONG(YT-B1)</th>
+                                <th>Xiongshi(Ice Block)</th>
+                                <th>yitong(IB50)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td> <p:inputNumber id="pAmountA" value="#{salesBean.proA1}">  
+                                        <p:ajax  event="change" listener="#{salesBean.PDist()}" update="proAmountAR1 proAmountAR2 proAmountAR3 proAmountAR4 proAmountAR5 proAmountAR6 ntpar1 ntpar2 ntpar3 ntpar4 ntpar5 ntpar6 a c"/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td> <p:inputNumber id="pAmountB" value="#{salesBean.proA2}">  
+                                        <p:ajax  event="change" listener="#{salesBean.PDist2()}" update="proAmountBR1 proAmountBR2 proAmountBR3 proAmountBR4 proAmountBR5 proAmountBR6 ntpbr1 ntpbr2 ntpbr3 ntpbr4 ntpbr5 ntpbr6  a c"/> 
+                                    </p:inputNumber>
+                                </td>
+                                <td> <p:inputNumber id="pAmountC" value="#{salesBean.proA3}">  
+                                         <p:ajax  event="change" listener="#{salesBean.PDist3()}" update="proAmountCR1 proAmountCR2 proAmountCR3 proAmountCR4 proAmountCR5 proAmountCR6 ntpcr1 ntpcr2 ntpcr3 ntpcr4 ntpcr5 ntpcr6 a c"/> 
+                                    </p:inputNumber>
+                                </td>
+                                <td> <p:inputNumber id="pAmountD" value="#{salesBean.proA4}">  
+                                         <p:ajax  event="change" listener="#{salesBean.PDist4()}" update="proAmountDR1 proAmountDR2 proAmountDR3 proAmountDR4 proAmountDR5 proAmountDR6 ntpdr1 ntpdr2 ntpdr3 ntpdr4 ntpdr5 ntpdr6 a c"/> 
+                                    </p:inputNumber>
+                                </td>
+                                <td> <p:inputNumber id="pAmountE" value="#{salesBean.proA5}">  
+                                          <p:ajax  event="change" listener="#{salesBean.PDist5()}" update="proAmountER1 proAmountER2 proAmountER3 proAmountER4 proAmountER5 proAmountER6 ntper1 ntper2 ntper3 ntper4 ntper5 ntper6 a c"/> 
+                                    </p:inputNumber>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <hr/>
+                    <div id="salesContributeTable" class="table-responsive">
+                        <table border="1" class="table">
+                            <tr>
+                                <th rowspan="2" colspan="2">Contribute</th>
+                                <th rowspan="2">Grade</th>
+                                <th>A</th>
+                                <th>B</th>
+                                <th>C</th>
+                                <th>D</th>
+                                <th colspan="10">
+                                    <p:commandButton process="@form" value="Save" action="#{salesBean.doSave}"  id="ajax" update="growl" ajax="false" styleClass="ui-priority-primary" class="btn btn-success" />
+                                </th>
+                            </tr>
+                            <tr>
+                                <td> <p:inputNumber id="productAmountA" value="#{salesBean.gradeA}" symbol="%" symbolPosition="s" emptyValue=""> 
+                                        <p:ajax process="productAmountA" event="change" update="b"/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td> <p:inputNumber id="productAmountB"  value="#{salesBean.gradeB}" symbol="%" symbolPosition="s" emptyValue=""> 
+                                        <p:ajax process="productAmountB" event="change"/> 
+                                    </p:inputNumber>
+                                </td>
+                                <td> <p:inputNumber id="productAmountC"  value="#{salesBean.gradeC}" symbol="%" symbolPosition="s" emptyValue=""> 
+                                        <p:ajax process="productAmountC" event="change"/> 
+                                    </p:inputNumber>
+                                </td>
+                                <td> <p:inputNumber id="productAmountD" value="#{salesBean.gradeD}" symbol="%" symbolPosition="s" emptyValue=""> 
+                                       <p:ajax process="productAmountD" event="change"/> 
+                                    </p:inputNumber>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <th colspan="2">RNG</th>
+                                <th colspan="3"> Xiongshi(XSDST-2)</th>
+                                <th colspan="3">Yitong(XS-818T)</th>
+                                <th colspan="3">YITONG(YT-B1)</th>
+                                <th colspan="3">Xiongshi(Ice Block)</th>
+                                <th colspan="3">yitong(IB50)</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2"></th>
+                                <td>NaN</td>
+                                <td>offer</td>
+                                <td>Taka</td>
+
+                                <td>NaN</td>
+                                <td>offer</td>
+                                <td>Taka</td>
+
+                                <td>NaN</td>
+                                <td>offer</td>
+                                <td>Taka</td>
+
+                                <td>NaN</td>
+                                <td>offer</td>
+                                <td>Taka</td>
+
+                                <td>NaN</td>
+                                <td>offer</td>
+                                <td>Taka</td>
+
+                            </tr>
+                            <!--Route 1-->
+                            <tr>
+                                <th>#{salesBean.route1}</th>
+                                <th>#{salesBean.route1Grade}</th>
+                                <td>
+                                    <p:inputNumber id="proAmountAR1" value="#{salesBean.r1p1}"   emptyValue="zero">                                         
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="opa"  value="#{salesBean.opa}"   emptyValue="zero"> 
+                                      
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpar1" value="#{salesBean.ntpar1}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountBR1" value="#{salesBean.r1p2}"   emptyValue="zero"> 
+                                        
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opb}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpbr1" value="#{salesBean.ntpbr1}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountCR1" value="#{salesBean.r1p3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opc}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpcr1" value="#{salesBean.ntpcr1}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountDR1" value="#{salesBean.r1p4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opd}" style="width: 60px;"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpdr1" value="#{salesBean.ntpdr1}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountER1" value="#{salesBean.r1p5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.ope}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntper1" value="#{salesBean.ntper1}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+
+                            </tr>
+                            
+                            <tr>
+                                <th>#{salesBean.route2}</th>
+                                <th>#{salesBean.route2Grade}</th>
+                                <td>
+                                    <p:inputNumber id="proAmountAR2" value="#{salesBean.r2p1}"   emptyValue="zero"> 
+
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.opa}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpar2" value="#{salesBean.ntpar2}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountBR2" value="#{salesBean.r2p2}"   emptyValue="zero"> 
+                                        
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opb}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpbr2" value="#{salesBean.ntpbr2}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountCR2" value="#{salesBean.r2p3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opc}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpcr2" value="#{salesBean.ntpcr2}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountDR2" value="#{salesBean.r2p4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opd}" style="width: 60px;"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpdr2" value="#{salesBean.ntpdr2}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountER2" value="#{salesBean.r2p5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.ope}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntper2" value="#{salesBean.ntper2}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+
+                            </tr>
+                            <!--route -3-->
+                            <tr>
+                                <th>#{salesBean.route3}</th>
+                                <th>#{salesBean.route3Grade}</th>
+                                <td>
+                                    <p:inputNumber id="proAmountAR3" value="#{salesBean.r3p1}"   emptyValue="zero"> 
+
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.opa}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpar3" value="#{salesBean.ntpar3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountBR3" value="#{salesBean.r3p2}"   emptyValue="zero"> 
+                                        
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opb}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpbr3" value="#{salesBean.ntpbr3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountCR3" value="#{salesBean.r3p3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opc}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpcr3" value="#{salesBean.ntpcr3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountDR3" value="#{salesBean.r3p4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opd}" style="width: 60px;"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpdr3" value="#{salesBean.ntpdr3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountER3" value="#{salesBean.r3p5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.ope}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntper3" value="#{salesBean.ntper3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+
+                            </tr>
+                            <!--route -4-->
+                            <tr>
+                                <th>#{salesBean.route4}</th>
+                                <th>#{salesBean.route4Grade}</th>
+                                <td>
+                                    <p:inputNumber id="proAmountAR4" value="#{salesBean.r4p1}"   emptyValue="zero"> 
+
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.opa}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpar4" value="#{salesBean.ntpar4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountBR4" value="#{salesBean.r4p2}"   emptyValue="zero"> 
+                                        
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opb}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpbr4" value="#{salesBean.ntpbr4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountCR4" value="#{salesBean.r4p3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opc}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpcr4" value="#{salesBean.ntpcr4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountDR4" value="#{salesBean.r4p4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opd}" style="width: 60px;"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpdr4" value="#{salesBean.ntpdr4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountER4" value="#{salesBean.r4p5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.ope}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntper4" value="#{salesBean.ntper4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+
+                            </tr>
+                            <!--route -5-->
+                            <tr>
+                                <th>#{salesBean.route5}</th>
+                                <th>#{salesBean.route5Grade}</th>
+                                <td>
+                                    <p:inputNumber id="proAmountAR5" value="#{salesBean.r5p1}"   emptyValue="zero"> 
+
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.opa}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpar5" value="#{salesBean.ntpar5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountBR5" value="#{salesBean.r5p2}"   emptyValue="zero"> 
+                                        
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opb}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpbr5" value="#{salesBean.ntpbr5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountCR5" value="#{salesBean.r5p3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opc}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpcr5" value="#{salesBean.ntpcr5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountDR5" value="#{salesBean.r5p4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opd}" style="width: 60px;"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpdr5" value="#{salesBean.ntpdr5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountER5" value="#{salesBean.r5p5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.ope}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntper5" value="#{salesBean.ntper5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+
+                            </tr>
+                            <!--route -6-->
+                            <tr>
+                                <th>#{salesBean.route6}</th>
+                                <th>#{salesBean.route6Grade}</th>
+                                <td>
+                                    <p:inputNumber id="proAmountAR6" value="#{salesBean.r6p1}"   emptyValue="zero"> 
+
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.opa}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpar6" value="#{salesBean.ntpar6}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountBR6" value="#{salesBean.r6p2}"   emptyValue="zero"> 
+                                        
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opb}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpbr6" value="#{salesBean.ntpbr6}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountCR6" value="#{salesBean.r6p3}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opc}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpcr6" value="#{salesBean.ntpcr6}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountDR6" value="#{salesBean.r6p4}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber value="#{salesBean.opd}" style="width: 60px;"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntpdr6" value="#{salesBean.ntpdr6}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="proAmountER6" value="#{salesBean.r6p5}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber  value="#{salesBean.ope}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td>
+                                    <p:inputNumber id="ntper6" value="#{salesBean.ntper6}"   emptyValue="zero"> 
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+
+                            </tr>
+
+                        </table>
+                        <h:outputText id="a" value=" A:#{salesBean.proA1}"/><br/>
+                        <h:outputText id="b" value="B: #{salesBean.gradeA}"/><br/>
+                        <h:outputText id="c" value="C: #{salesBean.ab1}"/><br/>
+
+                    </div>
+                     
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

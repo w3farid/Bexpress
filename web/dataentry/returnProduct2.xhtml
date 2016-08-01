@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="Template2.xhtml">
+            <ui:define name="content">
+
+                <f:facet name="head">
+                    <h:outputStylesheet name="bootstrap.min.css" library="css"/>
+                    <h:outputStylesheet name="returnProductStyle.css" library="css"/>
+                </f:facet>
+                <div>
+                    Return Entry Date: #{salesBean.date}
+                </div>
+                <h:form>
+                    <div id="returnProduct" class="table-responsive">
+
+                        <p:growl id="growl" life="13000" />
+                        <table border="1" class="table ">
+                            <tr>
+                                <th>Selct Route no.</th>
+                                <td colspan="2">
+                                    <p:selectOneMenu class="myselect"  id="srselect" value="#{returnProductBean.srName}" style="width: 333px;"  >
+                                        <f:selectItems value="#{returnProductBean.repIdandName}" />
+                                        <p:ajax event="change" listener="#{returnProductBean.salesQuery}" update="pA pB pC pD pE" />
+                                    </p:selectOneMenu>
+                                </td>
+                                <td><p:commandButton value="Save" update="growl" actionListener="#{returnProductBean.doSave}"  class="btn btn-success" style=""/></td>
+                                <td>Target Outlet</td>
+                                <td>
+                                    <p:inputNumber value="#{returnProductBean.targetMemo}">  
+                                        <p:ajax/>  
+                                    </p:inputNumber>  
+                                </td>
+                                <td>Achieves Outlet</td>
+                                <td>
+                                    <p:inputNumber  value="#{returnProductBean.achieveMemo}">  
+                                        <p:ajax />  
+                                    </p:inputNumber>  
+                                </td>
+                               
+                            </tr>
+                            <tr>
+                                <th>Brand Name</th>
+                                <th>Issue</th>
+                                <th>Return</th>
+                                <th>Sales</th>
+                                <th>Memo</th>
+                            </tr>
+                            <tr class="inputTr">
+                                <th class="productName">xiongshiA</th>
+                                <td class="input1100">
+                                    <p:inputNumber id="pA"  value="#{returnProductBean.pa}" emptyValue="0" readonly="true">  
+                                        <p:ajax process="pA" event="change"/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber  value="#{returnProductBean.rpa}" emptyValue="0" style="text-align: left;">  
+                                        <p:ajax event="change" listener="#{returnProductBean.paSales}" update="salesA total"/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber id="salesA"  value="#{returnProductBean.salesA}" emptyValue="0" readonly="true">  
+                                        <p:ajax event="change" process="salesA"/>
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber  value="0" emptyValue="0">  
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                            </tr>
+                            <tr class="inputTr">
+                                <th class="productName">YitongB</th>
+                                <td class="input1100">
+                                    <p:inputNumber id="pB"  value="#{returnProductBean.pb}" emptyValue="0" readonly="true">  
+                                        <p:ajax process="pB" event="change"/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber   value="#{returnProductBean.rpb}" emptyValue="0">  
+                                        <p:ajax event="change" listener="#{returnProductBean.pbSales}" update="salesB total"/> 
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber id="salesB" value="#{returnProductBean.salesB}" emptyValue="0" readonly="true">  
+                                        <p:ajax event="change" process="salesB"/>
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber  value="0" emptyValue="0">  
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                            </tr>
+                            <tr class="inputTr">
+                                <th class="productName">YITONGC</th>
+                                <td class="input1100">
+                                    <p:inputNumber id="pC" value="#{returnProductBean.pc}" emptyValue="0" readonly="true">  
+                                        <p:ajax process="pC" event="change"/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber  value="#{returnProductBean.rpc}" emptyValue="0">  
+                                         <p:ajax event="change" listener="#{returnProductBean.pcSales}" update="salesC total"/> 
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber id="salesC" value="#{returnProductBean.salesC}" emptyValue="0" readonly="true">  
+                                         <p:ajax event="change" process="salesC"/>
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber  value="0" emptyValue="0">  
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                            </tr>
+                            <tr class="inputTr">
+                                <th class="productName">YITONGD</th>
+                                <td class="input1100">
+                                    <p:inputNumber id="pD"  value="#{returnProductBean.pd}" emptyValue="0" readonly="true">  
+                                        <p:ajax process="pD" event="change"/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber  value="#{returnProductBean.rpd}" emptyValue="0">  
+                                          <p:ajax event="change" listener="#{returnProductBean.pdSales}" update="salesD total"/> 
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber id="salesD"  value="#{returnProductBean.salesD}" emptyValue="0" readonly="true" >  
+                                       <p:ajax process="salesD" event="change"/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber  value="0" emptyValue="0">  
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                            </tr>
+                            <tr class="inputTr">
+                                <th class="productName">XiongshiE</th>
+                                <td class="input1100">
+                                    <p:inputNumber id="pE"  value="#{returnProductBean.pe}" emptyValue="0" readonly="true">  
+                                        <p:ajax process="pE" event="change"/>  
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber  value="#{returnProductBean.rpe}" emptyValue="0">  
+                                         <p:ajax event="change" listener="#{returnProductBean.peSales}" update="salesE total"/> 
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber id="salesE"  value="#{returnProductBean.salesE}" emptyValue="0" readonly="true">  
+                                        <p:ajax process="salesE" event="change"/> 
+                                    </p:inputNumber>
+                                </td>
+                                <td class="input1100">
+                                    <p:inputNumber  value="0" emptyValue="0">  
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                            </tr>                           
+                            <tr style="text-align: right; font-weight: bold; color: green;">
+                                <td colspan="4">Total Taka</td>
+                                <td>
+                                    <p:inputNumber id="total"  value="#{returnProductBean.totalTaka}" emptyValue="0" class="totalt" readonly="true">  
+                                        <p:ajax/>  
+                                    </p:inputNumber>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    #{returnProductBean.srName}
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

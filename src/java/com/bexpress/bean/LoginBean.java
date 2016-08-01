@@ -59,7 +59,7 @@ public class LoginBean implements Serializable{
        if(result){
            HttpSession session=LoginUtil.getSession();
            session.setAttribute("username", username);
-           return "login";
+           return username;
        }else{
            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Failed!","Please Try Again!"));
            return "registration";
