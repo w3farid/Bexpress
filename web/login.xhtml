@@ -28,7 +28,7 @@
                              <p:inputText id="login_username" value="#{loginBean.username}" placeholder="username" rendered="true" />
                             <p:outputLabel for="login_password"/> 
                             <p:password id="login_password" value="#{loginBean.password}" placeholder="password" rendered="true"/>
-                            <p:commandButton value="Login" update="growl" ajax="true" action="#{loginBean.loginBusinessExpress()}" />
+                            <p:commandButton value="Login" update="growl" ajax="false" action="#{loginBean.loginBusinessExpress()}" />
                         </h:form>                        
 
                     </div>
