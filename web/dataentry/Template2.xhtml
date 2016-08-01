@@ -27,9 +27,13 @@
                     <h:form>
                         <p:growl id="messages"/>
                         <p:menuButton value="Data Entry" class="navbtn1" id="navbtn1">
-                            <p:menuitem value="Web entry" url="/returnProduct2.xhtml" ajax="false"/>                       
-                            <p:menuitem value="Cost entry" url="/purchases_cost2.xhtml"/>                        
-                            <p:menuitem value="Supervisor" url="/supervisor.xhtml"/>
+                            <p:menuitem value="Web entry" url="/dataentry/returnProduct2.xhtml" ajax="false"/>                       
+                            <p:menuitem value="Cost entry" url="/dataentry/purchases_cost2.xhtml"/>                        
+                            <p:menuitem value="Supervisor" url="/dataentry/supervisor2.xhtml"/>
+                            <p:menuitem value="Supplier" url="/dataentry/suplier2.xhtml"/>
+                            <p:menuitem value="Category" url="/dataentry/category2.xhtml"/>
+                            <p:menuitem value="Category" url="/dataentry/manager2.xhtml"/>
+                            <p:menuitem value="Category" url="/dataentry/representatives2.xhtml"/>
                             <p:separator />
                             <p:menuitem value="Home" url="/detemplete.xhtml"/>
                         </p:menuButton>
@@ -41,8 +45,8 @@
                     <h:form>
                          <p:growl id="messages"/>
                         <p:menuButton value="Reports" class="navbtn1" id="navbtn1">                            
-                            <p:menuitem value="Sales" url="/dataentry/salesReportTable2.xhtml" />
-                            <p:menuitem value="Return Sales" url="/dataentry/returnSalesReport2.xhtml"/>
+                            <p:menuitem value="Sales" url="/dataentry/returnSalesReport2.xhtml" />
+                            <p:menuitem value="Return Sales" url="/dataentry/salesReportTable2.xhtml"/>
                             <p:menuitem value="Purchases" url="#"/>
                             <p:menuitem value="returns" url="#"/>
                             <p:menuitem value="QC" url="#"/>
