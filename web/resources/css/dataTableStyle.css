@@ -1,0 +1,57 @@
+#dataTableStyle th{
+    background-color:       #d0d3d4 !important;
+    height: 10px !important;
+}
+table{
+    border: none !important;
+}
+tr:nth-child(even) {
+    background:     #f0f3f4 !important;
+     height: 15px !important;
+}
+tr:nth-child(odd) {
+    background:       #d5dbdb !important;
+    height: 15px !important;
+                       
+}
+ .center_content {
+  border: 30px solid  transparent!important;
+  border-radius: 10px !important;
+  margin: 70px 0 39px !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+.ui-corner-top {
+  border-top-left-radius: 78px;
+  border-top-right-radius: 90px;
+}
+.ui-datatable .ui-paginator, .ui-datatable .ui-paginator {
+  padding: 0px;
+}
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td, .ui-datatable tfoot th {
+  border: 1px solid green !important;
+  overflow: hidden;
+  padding: 1px 0;
+  text-align: center;
+}
+#dataTableStyle .ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+  background: #fff none repeat scroll 0 0 !important;
+  box-shadow: 0 2px 2px #8f8f8f inset !important;
+  color: #313131 !important;
+}
+#dataTableStyle .ui-inputfield:hover, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+  background: #fff none repeat scroll 0 0 !important;
+  box-shadow: 0 2px 2px #8f8f8f inset !important;
+  color: #313131 !important;
+}
+ a:link, a:hover {
+  background: inherit !important;   
+  font-weight: normal;
+  padding-right: 0 !important;
+  text-decoration: none;  
+  width: inherit !important;
+}
+img {
+  border: 0 none;
+  padding-left: 10px !important;
+}

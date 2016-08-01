@@ -25,6 +25,10 @@ public class Sales {
     private int offer;
     private Date date;
 
+    public Sales(String repName) {
+        this.repName = repName;
+    }
+
     public Sales() {
     }
 

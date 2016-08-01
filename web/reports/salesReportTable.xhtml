@@ -10,7 +10,7 @@
     </h:head>
     <h:body>
         <ui:composition template="../bexpress/Template.xhtml">
-           
+
             <ui:define name="title">
                 Product
             </ui:define>
@@ -18,76 +18,76 @@
                 <f:facet name="head">
 
                     <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+                    <h:outputStylesheet library="css" name="dataTableStyle.css"/>
                     <h:outputStylesheet library="css" name="tabview.css"/>
                     <h:outputScript library="js" name="jquery-3.1.0.min"/>
                     <h:outputScript library="js" name="bootstrap.min.js"/>
 
 
                 </f:facet>
-                <h:form>
-                    <p:dataTable var="sales" value="#{salesFilter.sales}" widgetVar="SalesTable"
-                                 emptyMessage="No cars found with given criteria" filteredValue="#{salesFilter.filteredSales}">
+                <div id="dataTableStyle">
+                    <h:form>  
 
-                        <f:facet name="header">
-                            <p:outputPanel>
-                                <h:outputText value="Search all fields:" />
-                                <p:inputText id="globalFilter2" onkeyup="PF('SalesTable').filter()" style="width:150px" placeholder="Enter keyword"/>
-                            </p:outputPanel>
-                        </f:facet>
+                        <p:dataTable style="background-color: green;" id="tbl" var="sales" value="#{salesFilter.sales}" widgetVar="salesTable" rows="10"
+                                     emptyMessage="No cars found with given criteria" filteredValue="#{salesFilter.filteredSales}" paginator="true"
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                                     rowsPerPageTemplate="5,10,15,25,35,40,45,50,60,80,100">
+                            <f:facet name="{Exporters}">
+                                <h:commandLink>
+                                    <p:graphicImage name="pdf.png" library="images" />
+                                    <p:dataExporter type="pdf" target="tbl" fileName="Daily_Sales"/>
+                                </h:commandLink>
 
-                        <p:column filterBy="#{sales.salseId}" headerText="Sales Id" footerText="contains" filterMatchMode="contains">
-                            <h:outputText value="#{sales.salseId}" />
-                        </p:column>
-                        
-                        <p:column filterBy="#{sales.repId}" headerText="Rep_Id" footerText="contains" filterMatchMode="contains">
-                            <h:outputText value="#{sales.repId}" />
-                        </p:column>
-                        
-                        <p:column filterBy="#{sales.repName}" headerText="Rep_Id" footerText="contains" filterMatchMode="contains">
-                            <h:outputText value="#{sales.repName}" />
-                        </p:column>
-                        
-                        <p:column  headerText="Rep_Id" footerText="contains" filterMatchMode="contains">
-                            <h:outputText value="#{sales.xiongshiA}" />
-                        </p:column>
-                        
-                        <p:column  headerText="Rep_Id" footerText="contains" filterMatchMode="contains">
-                            <h:outputText value="#{sales.yitongB}" />
-                        </p:column>
-                        
-                        <p:column  headerText="Rep_Id" footerText="contains" filterMatchMode="contains">
-                            <h:outputText value="#{sales.y1c}" />
-                        </p:column>
-                        
-                        <p:column  headerText="Rep_Id" footerText="contains" filterMatchMode="contains">
-                            <h:outputText value="#{sales.lyd}" />
-                        </p:column>
-                        
-                        <p:column  headerText="Rep_Id" footerText="contains" filterMatchMode="contains">
-                            <h:outputText value="#{sales.xiongshiE}" />
-                        </p:column>
-                        
-                        <p:column filterBy="#{sales.unitPrice}" headerText="Price" footerText="custom (min)" filterFunction="#{dtFilterView.filterByPrice}">
-                            <h:outputText value="#{sales.unitPrice}">
-                                <f:convertNumber currencySymbol="$" type="currency"/>
-                            </h:outputText>
-                        </p:column>
-                         <p:column  headerText="Rep_Id" footerText="contains" filterMatchMode="contains">
-                             <h:outputText value="#{sales.offer}" />
-                        </p:column>
 
-                        <p:column filterBy="#{sales.date}" headerText="Year" footerText="lte" filterMatchMode="lte">
-                            <f:facet name="filter">
-                                 <h:outputText value="Date" />
-                                <p:inputText id="globalFilter" onkeyup="PF('SalesTable').filter()" style="width:150px" placeholder="Enter keyword"/>
-                               
+                                <h:commandLink>
+                                    <p:graphicImage name="excel.png" library="images" />
+                                    <p:dataExporter type="xls" target="tbl" fileName="Daily_Sales"/>
+                                </h:commandLink>
+
                             </f:facet>
-                            <h:outputText value="#{sales.date}" />
-                        </p:column>
+                            
 
-                        
-                    </p:dataTable>
-                </h:form>
+                            <p:column filterBy="#{sales.salseId}" headerText="Sales Id" footerText="contains" filterMatchMode="contains">
+                                <h:outputText value="#{sales.salseId}" />
+                            </p:column>
+                            <p:column filterBy="#{sales.repId}" headerText="Rep ID" footerText="contains" filterMatchMode="contains">
+                                <h:outputText value="#{sales.repId}" />
+                            </p:column>
+                            <p:column filterBy="#{sales.repName}" headerText="SR Name" footerText="exact" filterMatchMode="exact">
+                                <f:facet name="filter">
+                                    <p:selectOneMenu onchange="PF('salesTable').filter()" >
+                                        <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true" />
+                                        <f:selectItems value="#{salesFilter.srName}" />
+                                    </p:selectOneMenu>
+                                </f:facet>
+                                <h:outputText value="#{sales.repName}" />
+                            </p:column>
+                            <p:column  headerText="Xiongshi(XSDST-2) " footerText="contains" filterMatchMode="contains">
+                                <h:outputText value="#{sales.xiongshiA}" />
+                            </p:column>
+                            <p:column  headerText="Yitong(XS-818T)" footerText="contains" filterMatchMode="contains">
+                                <h:outputText value="#{sales.yitongB}" />
+                            </p:column>
+                            <p:column  headerText="YITONG(YT-B1)" footerText="contains" filterMatchMode="contains">
+                                <h:outputText value="#{sales.y1c}" />
+                            </p:column>
+                            <p:column  headerText="Xiongshi(Ice Block)" footerText="contains" filterMatchMode="contains">
+                                <h:outputText value="#{sales.lyd}" />
+                            </p:column>
+                            <p:column  headerText="yitong(IB50)" footerText="contains" filterMatchMode="contains">
+                                <h:outputText value="#{sales.xiongshiE}" />
+                            </p:column>
+                            <p:column filterBy="#{sales.unitPrice}" headerText="Unit price" footerText="custom (min)" filterFunction="#{salesFilter.filterByPrice}">
+                                <h:outputText value="#{sales.unitPrice}">
+                                    <f:convertNumber currencySymbol="$" type="currency"/>
+                                </h:outputText>
+                            </p:column>
+                            <p:column  headerText="Sales date" footerText="contains" filterMatchMode="contains">
+                                <h:outputText value="#{sales.date}" />
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </div>
             </ui:define>
         </ui:composition>
     </h:body>

@@ -11,15 +11,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author FG
  */
+@ManagedBean(name = "salesService")
+@ApplicationScoped
 public class SalesService {
+
+    public SalesService() {
+    }
 
     public List<Sales> createSales() {
         List<Sales> list = new ArrayList<Sales>();
+       
         Connection con = null;
         try {
             con = Database.getConnection();
@@ -32,5 +40,24 @@ public class SalesService {
         }
         return list;
     }
+    public List<ReturnSales> createSales2() {
+        List<ReturnSales> list = new ArrayList<ReturnSales>();
+       
+        Connection con = null;
+        try {
+            con = Database.getConnection();
+            PreparedStatement stm=con.prepareStatement("select * from return_sales");
+            ResultSet rs=stm.executeQuery();
+            while(rs.next()){
+               list.add(new ReturnSales( rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5), rs.getDouble(6), rs.getDouble(7),rs.getDouble(8), rs.getInt(9), rs.getInt(10), rs.getDouble(11), rs.getDate(12)));
+             
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+   
+    
+   
 
 }
