@@ -83,9 +83,9 @@
                                         <p:commandButton update="msgs" actionListener="#{representativesBean.doSaveRep}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Save" ajax="false" icon="ui-icon-check" validateClient="true"/>
 
                                     </h:form>
-                                    
+
                                 </div>
-                               
+
                             </p:tab>
                             <p:tab title="Update">
                                 <div id="formV">
@@ -201,29 +201,32 @@
                                     </h:form>
                                 </div>
                             </p:tab>
-                            <p:tab title="Update images">
+                            <p:tab title="Show">
                                 <div id="formV">
-                                    <h3>Update Representatives Images//</h3>
-                                    <h:form enctype="multipart/form-data">
-                                        <p:growl id="messages" showDetail="true" />
-                                        <h:panelGrid columns="2" cellpadding="0">
-                                            <p:outputLabel for="repid" value="Representative id" />
-                                            <p:selectOneMenu class="selectMenu" id="repid" value="#{representativesBean.repId}" effect="fold" editable="false" rendered="true">
-                                                <f:selectItem itemLabel="Select Id" itemValue="" noSelectionOption="true"/>
-                                                <f:selectItems value="#{listDao.repIdList}" />
-                                            </p:selectOneMenu>                                        
-                                            <p:outputLabel value="Select Image"/>
-                                        <p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
-                                        </h:panelGrid>
+                                    <h3>Show Representatives Table//</h3>
+                                    <p:dataTable var="m" value="#{representives.list}">
+                                        <p:column headerText="Id">
+                                            <h:outputText value="#{m.repId}" />
+                                        </p:column>
 
-                                        <p:commandButton value="Submit" ajax="false" actionListener="#{representativesBean.imageUpdateRep}" disabled="false" />
-                                    </h:form>
+                                        <p:column headerText="Rep Name">
+                                            <h:outputText value="#{m.repName}" />
+                                        </p:column>
+
+                                        <p:column headerText="Sup Id">
+                                            <h:outputText value="#{m.supId}" />
+                                        </p:column>
+
+                                        <p:column headerText="Manager Id">
+                                            <h:outputText value="#{m.managerId}" />
+                                        </p:column>
+                                    </p:dataTable>
                                 </div>
                             </p:tab>
                         </p:tabView>
                     </h:form>
                 </div>
-                
+
             </ui:define>
         </ui:composition>
     </h:body>

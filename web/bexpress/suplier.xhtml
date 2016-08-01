@@ -65,12 +65,12 @@
                                             </p:selectOneMenu>                                        
                                             <p:message for="contacttitle" id="contacttitle2" display="tooltip" />
                                             <h:outputText/> 
-                                            
+
                                             <p:outputLabel for="address"  value="Address"  rendered="true"/>
                                             <p:inputTextarea id="address" placeholder="working area" value="#{suppliersBean.address}" rows="5" cols="30" counter="display" maxlength="200" counterTemplate="{0} cr" autoResize="false" />
                                             <p:message for="address" display="tooltip" />
                                             <h:outputText id="display" />
-                                            
+
                                             <h:outputLabel for="phone" value="Phone" />
                                             <p:inputText id="phone" value="#{suppliersBean.phone}" rendered="true" placeholder="Phone">
                                                 <f:validateRegex pattern="^[0-9]+$" />
@@ -78,7 +78,7 @@
                                             </p:inputText>
                                             <p:message for="phone" id="phone2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="mobile" value="Mobile" rendered="true"/>
                                             <p:inputText id="mobile" value="#{suppliersBean.mobile}" placeholder="mobile">
                                                 <f:validateRegex pattern="^[0-9]{11}+$" />
@@ -86,7 +86,7 @@
                                             </p:inputText>
                                             <p:message for="mobile" id="mobile2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="fax" value="fax" />
                                             <p:inputText id="fax" value="#{suppliersBean.fax}" placeholder="fax">
                                                 <f:validateRegex pattern="^[0-9]+$" />
@@ -94,7 +94,7 @@
                                             </p:inputText>
                                             <p:message for="fax" id="fax2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="email" value="Email" />
                                             <p:inputText id="email" value="#{suppliersBean.email}" placeholder="email">
                                                 <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
@@ -102,7 +102,7 @@
                                             </p:inputText>
                                             <p:message for="email" id="email2" display="icon" />
                                             <h:outputText/>
-                                            
+
                                             <h:outputLabel for="website" value="URL" />
                                             <p:inputText id="website" value="#{suppliersBean.website}" placeholder="www.example.com">
                                                 <f:validateRegex pattern="^(https?:\/\/www\.)?(^(https?:\/\/www\.)[0-9A-Za-z]+\.+[a-z]{2,5})$" />
@@ -131,7 +131,7 @@
                                             </p:selectOneMenu>                                        
                                             <p:message for="supplierid2" id="supplierid2" display="tooltip" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="comname" value="Company name"  />
                                             <p:inputText id="comname" value="#{suppliersBean.companyName}"  placeholder="Company name" rendered="true">
                                                 <f:validateRegex pattern="^[_a-zA-Z]+$" />
@@ -155,12 +155,12 @@
                                             </p:selectOneMenu>                                        
                                             <p:message for="contacttitle" id="contacttitle2" display="tooltip" />
                                             <h:outputText/> 
-                                            
+
                                             <p:outputLabel for="address"  value="Address"  rendered="true"/>
                                             <p:inputTextarea id="address" placeholder="working area" value="#{suppliersBean.address}" rows="5" cols="30" counter="display" maxlength="200" counterTemplate="{0} cr" autoResize="false" />
                                             <p:message for="address" display="tooltip" />
                                             <h:outputText id="display" />
-                                            
+
                                             <h:outputLabel for="phone" value="Phone" />
                                             <p:inputText id="phone" value="#{suppliersBean.phone}" rendered="true" placeholder="Phone">
                                                 <f:validateRegex pattern="^[0-9]+$" />
@@ -168,7 +168,7 @@
                                             </p:inputText>
                                             <p:message for="phone" id="phone2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="mobile" value="Mobile" rendered="true"/>
                                             <p:inputText id="mobile" value="#{suppliersBean.mobile}" placeholder="mobile">
                                                 <f:validateRegex pattern="^[0-9]{11}+$" />
@@ -176,7 +176,7 @@
                                             </p:inputText>
                                             <p:message for="mobile" id="mobile2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="fax" value="fax" />
                                             <p:inputText id="fax" value="#{suppliersBean.fax}" placeholder="fax">
                                                 <f:validateRegex pattern="^[0-9]+$" />
@@ -184,7 +184,7 @@
                                             </p:inputText>
                                             <p:message for="fax" id="fax2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="email" value="Email" />
                                             <p:inputText id="email" value="#{suppliersBean.email}" placeholder="email">
                                                 <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
@@ -192,7 +192,7 @@
                                             </p:inputText>
                                             <p:message for="email" id="email2" display="icon" />
                                             <h:outputText/>
-                                            
+
                                             <h:outputLabel for="website" value="URL" />
                                             <p:inputText id="website" value="#{suppliersBean.website}" placeholder="www.example.com">
                                                 <f:validateRegex pattern="^(https?:\/\/www\.)?(^(https?:\/\/www\.)[0-9A-Za-z]+\.+[a-z]{2,5})$" />
@@ -203,7 +203,7 @@
 
                                         </h:panelGrid>
                                         <p:commandButton update="msgs" actionListener="#{suppliersBean.doUpdateSup}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Update" ajax="true" icon="ui-icon-refresh" validateClient="true">
-                                        
+
                                         </p:commandButton>
 
                                     </h:form>
@@ -223,7 +223,7 @@
                                             </p:selectOneMenu>                                        
                                             <p:message for="supplierid2" id="supplierid2" display="tooltip" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="comname" value="Company name"  />
                                             <p:inputText id="comname" value="#{suppliersBean.companyName}"  placeholder="Company name" rendered="true">
                                                 <f:validateRegex pattern="^[_a-zA-Z]+$" />
@@ -247,12 +247,12 @@
                                             </p:selectOneMenu>                                        
                                             <p:message for="contacttitle" id="contacttitle2" display="tooltip" />
                                             <h:outputText/> 
-                                            
+
                                             <p:outputLabel for="address"  value="Address"  rendered="true"/>
                                             <p:inputTextarea id="address" placeholder="working area" value="#{suppliersBean.address}" rows="5" cols="30" counter="display" maxlength="200" counterTemplate="{0} cr" autoResize="false" />
                                             <p:message for="address" display="tooltip" />
                                             <h:outputText id="display" />
-                                            
+
                                             <h:outputLabel for="phone" value="Phone" />
                                             <p:inputText id="phone" value="#{suppliersBean.phone}" rendered="true" placeholder="Phone">
                                                 <f:validateRegex pattern="^[0-9]+$" />
@@ -260,7 +260,7 @@
                                             </p:inputText>
                                             <p:message for="phone" id="phone2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="mobile" value="Mobile" rendered="true"/>
                                             <p:inputText id="mobile" value="#{suppliersBean.mobile}" placeholder="mobile">
                                                 <f:validateRegex pattern="^[0-9]{11}+$" />
@@ -268,7 +268,7 @@
                                             </p:inputText>
                                             <p:message for="mobile" id="mobile2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="fax" value="fax" />
                                             <p:inputText id="fax" value="#{suppliersBean.fax}" placeholder="fax">
                                                 <f:validateRegex pattern="^[0-9]+$" />
@@ -276,7 +276,7 @@
                                             </p:inputText>
                                             <p:message for="fax" id="fax2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="email" value="Email" />
                                             <p:inputText id="email" value="#{suppliersBean.email}" placeholder="email">
                                                 <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
@@ -284,7 +284,7 @@
                                             </p:inputText>
                                             <p:message for="email" id="email2" display="icon" />
                                             <h:outputText/>
-                                            
+
                                             <h:outputLabel for="website" value="URL" />
                                             <p:inputText id="website" value="#{suppliersBean.website}" placeholder="www.example.com">
                                                 <f:validateRegex pattern="^(https?:\/\/www\.)?(^(https?:\/\/www\.)[0-9A-Za-z]+\.+[a-z]{2,5})$" />
@@ -297,6 +297,46 @@
                                         <p:commandButton update="msgs" actionListener="#{suppliersBean.doDeleteSup}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Delete" ajax="true" icon="ui-icon-trash" validateClient="true"/>
 
                                     </h:form>
+                                </div>
+                            </p:tab>
+                            <p:tab title="Show">
+                                <div id="formV">
+                                    <h3>Show Supplier Table//</h3>
+                                    <p:dataTable var="m" value="#{supplierView.list}">
+                                        <p:column headerText="Id">
+                                            <h:outputText value="#{m.suplierId}" />
+                                        </p:column>
+
+                                        <p:column headerText="Name">
+                                            <h:outputText value="#{m.contactPersonName}" />
+                                        </p:column>
+
+                                        <p:column headerText="Title">
+                                            <h:outputText value="#{m.contactTitle}" />
+                                        </p:column>
+
+                                        <p:column headerText="Company Name">
+                                            <h:outputText value="#{m.companyName}" />
+                                        </p:column>
+                                        <p:column headerText="Address">
+                                            <h:outputText value="#{m.address}" />
+                                        </p:column>
+
+                                        <p:column headerText="Eamil">
+                                            <h:outputText value="#{m.email}" />
+                                        </p:column>
+
+                                        <p:column headerText="Fax">
+                                            <h:outputText value="#{m.fax}" />
+                                        </p:column>
+
+                                        <p:column headerText="Mobile no.">
+                                            <h:outputText value="#{m.mobile}" />
+                                        </p:column>
+                                        <p:column headerText="Website">
+                                            <h:outputText value="#{m.website}" />
+                                        </p:column>
+                                    </p:dataTable>
                                 </div>
                             </p:tab>
                         </p:tabView>

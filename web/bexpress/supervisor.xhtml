@@ -177,6 +177,28 @@
                                     </h:form>
                                 </div>
                             </p:tab>
+                            <p:tab title="Show">
+                                <div id="formV">
+                                    <h3>Show Supervisor Table//</h3>
+                                    <p:dataTable var="m" value="#{supView.list}">
+                                        <p:column headerText="Id">
+                                            <h:outputText value="#{m.supId}" />
+                                        </p:column>
+
+                                        <p:column headerText="Rep Name">
+                                            <h:outputText value="#{m.supName}" />
+                                        </p:column>
+
+                                        <p:column headerText="Sup Id">
+                                            <h:outputText value="#{m.managerId}" />
+                                        </p:column>
+
+                                        <p:column headerText="Manager Id">
+                                            <h:outputText value="#{m.area}" />
+                                        </p:column>
+                                    </p:dataTable>
+                                </div>
+                            </p:tab>
                         </p:tabView>
                     </h:form>
                 </div>

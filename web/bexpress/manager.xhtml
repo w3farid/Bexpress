@@ -90,7 +90,7 @@
                                             </p:inputText>
                                             <p:message for="managername" id="managername2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="comid" value="Company id" />
                                             <p:inputText id="comid" value="#{managersBean.comId}">
                                                 <f:validateRegex pattern="^[0-9]+$" />
@@ -98,7 +98,7 @@
                                             </p:inputText>
                                             <p:message for="comid" id="comid2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <p:outputLabel for="area" value="Working Area" />
                                             <p:inputTextarea value="#{managersBean.area}" id="area" rows="5" cols="30" counter="display" maxlength="10" counterTemplate="{0} cr" autoResize="false" />
                                             <p:message for="area" display="icon" />
@@ -110,7 +110,7 @@
                                 </div>
                             </p:tab>
                             <p:tab title="Delete">
-                               <div id="formV">
+                                <div id="formV">
                                     <h3>Update Manager//</h3>
                                     <h:form>
                                         <p:growl id="message" showDetail="true"/>
@@ -131,7 +131,7 @@
                                             </p:inputText>
                                             <p:message for="managername" id="managername2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <h:outputLabel for="comid" value="Company id"  />
                                             <p:inputText id="comid" value="#{managersBean.comId}" disabled="true">
                                                 <f:validateRegex pattern="^[0-9]+$" />
@@ -139,7 +139,7 @@
                                             </p:inputText>
                                             <p:message for="comid" id="comid2" display="icon" />
                                             <h:outputText/> 
-                                            
+
                                             <p:outputLabel for="area" value="Working Area" />
                                             <p:inputTextarea disabled="true" value="#{managersBean.area}" id="area" rows="5" cols="30" counter="display" maxlength="10" counterTemplate="{0} cr" autoResize="false" />
                                             <p:message for="area" display="icon" />
@@ -148,6 +148,28 @@
                                         <p:commandButton update="message" actionListener="#{managersBean.doUpdateManager}" process="@form" style=" padding: 5px !important; font-weight: normal !important; margin-top: 20px !important; margin-left: 41% !important; float: left; color: #fff !important;; background-color: #34495e !important; width: 120px !important;" value="Update" ajax="true" icon="ui-icon-check" validateClient="true"/>
 
                                     </h:form>
+                                </div>
+                            </p:tab>
+                            <p:tab title="Show">
+                                <div id="formV">
+                                    <h3>Show Manager Table//</h3>
+                                    <p:dataTable var="m" value="#{managerView.list}">
+                                        <p:column headerText="Id">
+                                            <h:outputText value="#{m.managerId}" />
+                                        </p:column>
+
+                                        <p:column headerText="Year">
+                                            <h:outputText value="#{m.managerName}" />
+                                        </p:column>
+
+                                        <p:column headerText="Brand">
+                                            <h:outputText value="#{m.comId}" />
+                                        </p:column>
+
+                                        <p:column headerText="Color">
+                                            <h:outputText value="#{m.area}" />
+                                        </p:column>
+                                    </p:dataTable>
                                 </div>
                             </p:tab>
                         </p:tabView>
