@@ -86,7 +86,8 @@
                                     <f:convertNumber currencySymbol="$" type="currency"/>
                                 </h:outputText>
                             </p:column>
-                            <p:column  headerText="Sales date" footerText="contains" filterMatchMode="contains">
+                           
+                            <p:column filterBy="#{sales.date}" headerText="Date" footerText="contains" filterMatchMode="contains">
                                 <h:outputText value="#{sales.date}" />
                             </p:column>
                         </p:dataTable>

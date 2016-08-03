@@ -19,7 +19,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
-import org.apache.commons.io.FileUtils;
 import org.primefaces.model.UploadedFile;
 
 /**
@@ -54,43 +53,7 @@ public class RepresentativesBean {
             this.addMessage("Not saved");
         }
     }
-    public void imageUpdateRep(){
-        imageUpload();
-        Connection con = Database.getConnection();
-        try {
-            PreparedStatement stm=con.prepareStatement("update representatives set image=? where rep_id=?");
-            stm.setString(1, imageName);
-            stm.setInt(2, Integer.parseInt(repId));
-            stm.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(RepresentativesBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-
-    public void imageUpload() {
-        if (file != null) {
-            try {
-                FacesContext context = FacesContext.getCurrentInstance();
-                ServletContext servletContext = (ServletContext) context.getExternalContext().getContext();
-                String dbpath = servletContext.getRealPath("/");
-                String webcut = dbpath.substring(0, dbpath.lastIndexOf("\\"));
-                String buildcut = webcut.substring(0, webcut.lastIndexOf("\\"));
-                String mainURLPath = buildcut.substring(0, buildcut.lastIndexOf("\\"));
-                InputStream inputStream = file.getInputstream();
-                String path = mainURLPath + "\\web\\resources\\images\\repImages\\" + file.getFileName();
-                File destFile = new File(path);
-                if (!destFile.exists()) {
-                    FileUtils.copyInputStreamToFile(inputStream, destFile);
-                }
-                setImageName(file.getFileName().toString());
-
-            } catch (Exception e) {
-            }finally{
-                
-            }
-        }
-    }
+   
     public void repIdLidst(){
         
     }
